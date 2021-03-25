@@ -7,7 +7,7 @@ Aplicativo com um sistema de cadastro de usuários, onde cada um tem acesso a di
 Tecnologias utilizadas:
 - HTML, CSS, JS
 - Framework [Bootstrap](https://getbootstrap.com/)
-- [Node.js](https://nodejs.org/)
+- [NodeJS](https://nodejs.org/)
 - Framework [Express](https://expressjs.com/)
 
 Gerenciamento do projeto:
