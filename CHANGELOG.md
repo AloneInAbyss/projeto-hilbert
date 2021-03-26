@@ -1,6 +1,7 @@
 # CHANGELOG
 
 ## Versão 0.0.2 - 26.03.2020
+- Criação do `cadastro.html`
 - Aprimoramentos nos arquivos `login.html` e `style.css`
 
 ## Versão 0.0.2 - 25.03.2020
