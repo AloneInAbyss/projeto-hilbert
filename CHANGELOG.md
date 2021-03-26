@@ -1,6 +1,7 @@
 # CHANGELOG
 
 ## Versão 0.0.2
+- Arquivo de estilo `style.css` para as páginas
 - Criação da página HTML para login
 
 ## Versão 0.0.1
