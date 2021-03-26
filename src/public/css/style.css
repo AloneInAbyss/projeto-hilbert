@@ -23,3 +23,16 @@ h1 {
 form {
   background-color: #F1F6F9;
 }
+
+/* PÁGINA DE LOGIN E CADASTRO */ 
+.row-header {
+  height: 30%;
+}
+
+.row-main {
+  height: 50%;
+}
+
+.row-footer {
+  height: 20%;
+}
