@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=Montserrat&display=swap');
+
+/*** FONTES ***/
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-family: 'Kiwi Maru', serif;
+}
+
+/*** CORES ***/
+
+body {
+  background-image: linear-gradient(#447A9C, #5590B4);
+}
+
+h1 {
+  color: #fff;
+}
+
+form {
+  background-color: #F1F6F9;
+}

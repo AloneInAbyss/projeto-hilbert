@@ -15,6 +15,11 @@
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
     crossorigin="anonymous">
 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+
   <!-- CSS Personalizado -->
   <link rel="stylesheet" href="css/style.css">
 
@@ -24,36 +29,55 @@
 <body>
   
   <!-- CONTAINER -->
-  <div class="container bg-danger vh-100">
+  <div class="container vh-100">
     <!-- HEADER -->
-    <div class="row no-gutters bg-dark" style="height: 20%;">
-      <div class="row no-gutters bg-success align-items-center w-100">
-        <div class="col bg-secondary text-center">
+    <div class="row no-gutters" style="height: 30%;">
+      <div class="row no-gutters align-items-center w-100">
+        <div class="col text-center">
           
           <!-- CONTEÚDO -->
-          <h1 class="bg-dark text-light mb-0">PROJETO<br>HILBERT</h1></div>
-          
+          <h1 class="mb-0 display-4">PROJETO<br>HILBERT</h1>
+        
+        </div>  
       </div>
     </div>
     <!-- /HEADER -->
     
     <!-- MAIN -->
-    <div class="row no-gutters bg-info" style="height: 60%;">
-      <div class="row no-gutters bg-info align-items-center w-100">
-        <div class="col bg-secondary">
+    <div class="row no-gutters" style="height: 50%;">
+      <div class="row no-gutters align-items-center justify-content-center w-100">
+        <div class="col-10 col-sm-8 col-md-6 col-lg-4">
           
           <!-- CONTEÚDO -->
-          
+          <!-- FORMULÁRIO DE LOGIN -->
+          <form class="text-dark rounded p-3">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Usuário</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Senha</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 mt-2">Entrar</button>
+            
+            <hr class="mt-4">
+
+            <p class="form-text">Não é registrado? <a href="/cadastro">Cadastre-se</a></p>
+          </form>
+          <!-- /FORMULÁRIO -->
+
         </div>
       </div>
     </div>
     <!-- /MAIN -->
     
     <!-- FOOTER -->
-    <div class="row no-gutters bg-dark" style="height: 20%;">
-      <div class="row no-gutters bg-success align-items-center w-100">
-        <div class="col bg-secondary">
-          
+    <div class="row no-gutters" style="height: 20%;">
+      <div class="row no-gutters align-items-center w-100">
+        <div class="col">
+
           <!-- CONTEÚDO -->
           
         </div>
