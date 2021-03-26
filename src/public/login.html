@@ -54,12 +54,14 @@
             <!-- Usuário -->
             <div class="form-group">
               <label for="username">Usuário</label>
-              <input type="text" class="form-control" id="username" name="username" required>
+              <input type="text" class="form-control" id="username" name="username" 
+                minlength="4" maxlength="16" pattern="[a-zA-Z0-9]+" title="Apenas caracteres alfanuméricos" required>
             </div>
             <!-- Senha -->
             <div class="form-group">
               <label for="password">Senha</label>
-              <input type="password" class="form-control" id="password" name="password" required>
+              <input type="password" class="form-control" id="password" name="password" 
+                minlength="8" maxlength="16" required>
             </div>
             <!-- Enviar -->
             <button type="submit" class="btn btn-primary w-100 mt-2">Entrar</button>
@@ -89,7 +91,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          
+
           <div class="alert alert-warning alert-dismissible fade show mb-0 mx-auto w-75 d-none" role="alert">
             Nome ou senha incorretos!
             <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
@@ -112,6 +114,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
     crossorigin="anonymous"></script>
+  
+  <!-- JS Personalizado -->
+  <script src="js/form.js"></script>
 </body>
 
 </html>
