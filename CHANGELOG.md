@@ -1,6 +1,7 @@
 # CHANGELOG
 
 ## Versão 0.0.4 - 26.03.2020
+- Criação de um arquivo para planejamentos `PLANNER.md`
 - Cor do plano de fundo modificada
 - Criação da `pagina-inicial.html`
 - Sistema simples de rotas adicionado
