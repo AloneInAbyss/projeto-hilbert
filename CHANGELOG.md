@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## Versão 0.0.5 - 28.03.2020
+- Criação da página `desafio.html` para os desafios
+
 ## Versão 0.0.4 - 28.03.2020
 - Criação de um arquivo para planejamentos `PLANNER.md`
 - Cor do plano de fundo modificada
