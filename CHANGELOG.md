@@ -2,6 +2,8 @@
 
 ## Versão 0.0.5 - 28.03.2020
 - Criação da página `desafio.html` para os desafios
+- Criação da página `recompensa.html` para as recompensas
+- Página `modelo.html` deletada
 
 ## Versão 0.0.4 - 28.03.2020
 - Criação de um arquivo para planejamentos `PLANNER.md`
