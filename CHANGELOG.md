@@ -1,6 +1,10 @@
 # CHANGELOG
 
-## Versão 0.0.2 - 26.03.2020
+## Versão 0.0.4 - 26.03.2020
+- Criação da `pagina-inicial.html`
+- Sistema simples de rotas adicionado
+
+## Versão 0.0.3 - 26.03.2020
 - Criação do `cadastro.html`
 - Aprimoramentos nos arquivos `login.html` e `style.css`
 
