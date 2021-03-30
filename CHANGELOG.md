@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## Versão 0.0.6 - 30.03.2020
+- Validação dos formulários de login e de cadastro
+
 ## Versão 0.0.5 - 28.03.2020
 - Criação da página `desafio.html` para os desafios
 - Criação da página `recompensa.html` para as recompensas
