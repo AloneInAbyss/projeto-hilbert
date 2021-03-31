@@ -12,6 +12,20 @@ function validateForm() {
     alert.classList.remove("d-none");
 
   } else
+  
+  if (username.length < 4) {
+    
+    alert_message.innerHTML = "O nome de usuário precisa conter pelo menos 4 caracteres";
+    alert.classList.remove("d-none");
+
+  } else
+  
+  if (username.length > 16) {
+    
+    alert_message.innerHTML = "O nome de usuário não pode ter mais de 16 caracteres";
+    alert.classList.remove("d-none");
+
+  } else 
 
   if (password.length < 8) {
 
@@ -27,19 +41,7 @@ function validateForm() {
     
   } else
   
-  if (username.length < 4) {
-    
-    alert_message.innerHTML = "O nome de usuário precisa conter pelo menos 4 caracteres";
-    alert.classList.remove("d-none");
-
-  } else
-  
-  if (username.length > 16) {
-    
-    alert_message.innerHTML = "O nome de usuário não pode ter mais de 16 caracteres";
-    alert.classList.remove("d-none");
-
-  } else {
+  {
 
     alert.classList.add("d-none");
 
