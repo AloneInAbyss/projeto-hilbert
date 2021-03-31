@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## Versão 0.0.7 - 30.03.2020
+- Árvore de diretórios atualizada
+
 ## Versão 0.0.6 - 30.03.2020
 - Validação dos formulários de login e de cadastro
 

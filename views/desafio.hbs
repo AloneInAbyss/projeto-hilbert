@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap" rel="stylesheet">
 
   <!-- CSS Personalizado -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 
   <title>Bem-vindo ao Projeto Hilbert!</title>
 </head>
@@ -57,12 +57,12 @@
             </li>
           </ul>
 
-          <!-- RECOMPENSA -->
+          <!-- LISTA DE DESAFIOS EM ANDAMENTO -->
           <div class="card rounded-0 border-0 w-100 bg-transparent mb-2">
             <div class="card-header rounded-0 bg-dark text-light border-0 h5">
               <ul class="nav justify-content-between">
                 <li class="nav-item p-0">
-                  <a class="nav-link text-light px-0" href="/inicio#andamento">Recompensa</a>
+                  <a class="nav-link text-light px-0" href="/inicio#andamento">Desafios em andamento</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active px-0" href="/inicio">Voltar</a>
@@ -72,25 +72,37 @@
             <ul class="list-group list-group-flush">
               <li class="list-group-item pt-0 pb-3 px-3 bg-dark border-0">
                 
-                <!-- RECOMPENSA -->
+                <!-- DESAFIO -->
                 <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3">
                   <div class="card-header rounded-0 bg-danger text-light border-dark">
-                    <strong>Largest prime factor</strong>
+                    <strong>Multiples of 3 and 5</strong>
                   </div>
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item border-0 d-flex">
+                    <li class="list-group-item border-0">
 
-                      <iframe 
-                        class="mx-auto" 
-                        style="overflow-x: hidden;"
-                        width="560" 
-                        height="315" 
-                        src="https://www.youtube.com/embed/8So9OCr_HEA" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen
-                      ></iframe>
+                      <p>
+                        If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+                      </p>
+
+                      <p>
+                        Find the sum of all the multiples of 3 or 5 below 1000.
+                      </p>
+                      
+                      <div class="d-flex d-sm-none">
+                        <div class="btn-group-vertical mx-auto w-50" role="group" aria-label="Basic example">
+                          <button type="button" class="btn btn-success">Concluir</button>
+                          <button type="button" class="btn btn-warning">Recompensa</button>
+                          <button type="button" class="btn btn-danger">Remover</button>
+                        </div>
+                      </div>
+
+                      <div class="d-none d-sm-flex">
+                        <div class="btn-group mx-auto" role="group" aria-label="Basic example">
+                          <button type="button" class="btn btn-success">Concluir</button>
+                          <button type="button" class="btn btn-warning">Recompensa</button>
+                          <button type="button" class="btn btn-danger">Remover</button>
+                        </div>
+                      </div>
 
                     </li>
                   </ul>

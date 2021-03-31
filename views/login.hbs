@@ -21,9 +21,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
 
   <!-- CSS Personalizado -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 
-  <title>Projeto Hilbert - Cadastro</title>
+  <title>Projeto Hilbert - Login</title>
 </head>
 
 <body>
@@ -50,35 +50,29 @@
           
           <!-- CONTEÚDO -->
           <div class="rounded p-3 bg-light">
-            <!-- FORMULÁRIO DE CADASTRO -->
-            <form name="formCadastro" method="POST" action="/cadastrar">
+            <!-- FORMULÁRIO DE LOGIN -->
+            <form name="formLogin" class="rounded" method="POST" action="/logar">
               <!-- Usuário -->
               <div class="form-group">
-                <label for="username">Digite um nome de usuário</label>
+                <label for="username">Usuário</label>
                 <input type="text" class="form-control" id="username" name="username" autofocus
                   minlength="4" maxlength="16" pattern="[a-zA-Z0-9]+" title="Apenas caracteres alfanuméricos" required>
               </div>
               <!-- Senha -->
               <div class="form-group">
-                <label for="password">Digite uma senha</label>
+                <label for="password">Senha</label>
                 <input type="password" class="form-control" id="password" name="password" 
-                  minlength="8" maxlength="16" required>
-              </div>
-              <!-- Repetir senha -->
-              <div class="form-group">
-                <label for="password-check">Repita a senha</label>
-                <input type="password" class="form-control" id="password-check" name="password-check" 
                   minlength="8" maxlength="16" required>
               </div>
             </form>
             <!-- /FORMULÁRIO -->
             <!-- Enviar -->
-            <button class="btn btn-primary w-100 mt-2" onclick="validateForm()">Registrar-se</button>
+            <button class="btn btn-primary w-100 mt-2" onclick="validateForm()">Entrar</button>
             <!-- Separador -->
             <hr class="mt-4">
             <!-- Cadastro -->
             <p class="form-text">
-              Já é registrado? <a href="/login">Faça login</a>
+              Não é registrado? <a href="/cadastro">Cadastre-se</a>
             </p>
           </div>
 
@@ -117,7 +111,7 @@
     crossorigin="anonymous"></script>
   
   <!-- JS Personalizado -->
-  <script src="js/form-cadastro.js"></script>
+  <script src="/js/form-login.js"></script>
 </body>
 
 </html>
