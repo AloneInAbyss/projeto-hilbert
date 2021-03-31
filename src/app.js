@@ -1,13 +1,23 @@
 // Dependências
 const express = require("express");
+const hbs = require("hbs");
 const path = require("path");
 
 // Variáveis
 const app = express();
 const porta = 3000;
-const publicFolderPath = path.join(__dirname, '../public');
 
+// Paths
+const publicFolderPath = path.join(__dirname, '../public');
+const viewsPath = path.join(__dirname, '../templates/views');
+const partialsPath = path.join(__dirname, '../templates/partials');
+
+// Configs
 app.set('view engine', 'hbs');
+app.set('views', viewsPath);
+hbs.registerPartials(partialsPath);
+
+// Diretório
 app.use(express.static(publicFolderPath));
 
 // Inicia o servidor
