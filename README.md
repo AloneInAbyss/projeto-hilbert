@@ -9,6 +9,7 @@ Tecnologias utilizadas:
 - Framework [Bootstrap](https://getbootstrap.com/)
 - [NodeJS](https://nodejs.org/)
 - Framework [Express](https://expressjs.com/)
+- Template engine [Handlebars](https://handlebarsjs.com/) através do módulo [hbs](https://www.npmjs.com/package/hbs)
 
 Gerenciamento do projeto:
 - [Figma](https://www.figma.com/)
