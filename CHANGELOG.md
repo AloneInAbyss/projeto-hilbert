@@ -2,6 +2,7 @@
 
 ## Versão 0.0.8 - 31.03.2020
 - Mudança nos formulários
+- Tamanho mínimo da senha diminuido
 
 ## Versão 0.0.7 - 30.03.2020
 - Árvore de diretórios atualizada

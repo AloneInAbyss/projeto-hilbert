@@ -17,8 +17,9 @@ app.set('view engine', 'hbs');
 app.set('views', viewsPath);
 hbs.registerPartials(partialsPath);
 
-// Diretório
+// Use
 app.use(express.static(publicFolderPath));
+app.use(express.urlencoded({ extended: true }));
 
 // Inicia o servidor
 app.listen(porta, () => {
@@ -39,7 +40,16 @@ app.get("/cadastro", function(req, res) {
 });
 
 app.post("/logar", function(req, res) {
-  res.render('pagina-inicial');
+  let username = req.body.username;
+  let password = req.body.password;
+
+  if(username==='admin' && password==='admin') {
+    res.render('pagina-inicial', {
+      name: username
+    });
+  } else {
+    res.render('login');
+  }
 });
 
 app.post("/cadastrar", function(req, res) {
@@ -60,6 +70,10 @@ app.get("/recompensa", function(req, res) {
 
 app.get("/sair", function(req, res) {
   res.render('login');
+});
+
+app.get("/admin", function(req, res) {
+  res.render('administrador');
 });
 
 app.get('*', (req, res) => {

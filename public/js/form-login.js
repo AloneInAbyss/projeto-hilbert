@@ -5,9 +5,9 @@ function validateForm() {
   let alert = document.getElementById("alert");
   let alert_message = document.getElementById("alert-message");
 
-  if (password.length < 8) {
+  if (password.length < 4) {
 
-    alert_message.innerHTML = "A senha precisa conter pelo menos 8 caracteres";
+    alert_message.innerHTML = "A senha precisa conter pelo menos 4 caracteres";
     alert.classList.remove("d-none");
 
   } else
