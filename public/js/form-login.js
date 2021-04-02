@@ -5,30 +5,35 @@ function validateForm() {
   let alert = document.getElementById("alert");
   let alert_message = document.getElementById("alert-message");
 
-  if (password.length < 4) {
+  let unMinLength = 4;
+  let unMaxLength = 16;
+  let psMinLength = 6;
+  let psMaxLength = 16;
 
-    alert_message.innerHTML = "A senha precisa conter pelo menos 4 caracteres";
+  if (password.length < psLength) {
+
+    alert_message.innerHTML = `A senha precisa conter pelo menos ${psMinLength} caracteres`;
     alert.classList.remove("d-none");
 
   } else
 
-  if (password.length > 16) {
+  if (password.length > psMaxLength) {
 
-    alert_message.innerHTML = "A senha não pode ter mais de 16 caracteres";
+    alert_message.innerHTML = `A senha não pode ter mais de ${psMaxLength} caracteres`;
     alert.classList.remove("d-none");
     
   } else
   
-  if (username.length < 4) {
+  if (username.length < unMinLength) {
     
-    alert_message.innerHTML = "O nome de usuário precisa conter pelo menos 4 caracteres";
+    alert_message.innerHTML = `O nome de usuário precisa conter pelo menos ${unMinLength} caracteres`;
     alert.classList.remove("d-none");
 
   } else
   
-  if (username.length > 16) {
+  if (username.length > unMaxLength) {
     
-    alert_message.innerHTML = "O nome de usuário não pode ter mais de 16 caracteres";
+    alert_message.innerHTML = `O nome de usuário não pode ter mais de ${unMaxLength} caracteres`;
     alert.classList.remove("d-none");
 
   } else {

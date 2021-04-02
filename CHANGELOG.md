@@ -1,8 +1,21 @@
 # CHANGELOG
 
+## Versão 0.0.9 - 01.04.2020
+- Tamanho mínimo da senha alterado de 4 para 6
+- Estrutura da mensagem de alerta modificada
+- Rota `/login` removida
+- Campo escondido `isAdmin` adicionado
+- Router de `login` criado
+- Modelo de `user` criado
+- Conexão ao banco de dados adicionada
+- Muitas alterações no `app.js`
+- Arquivos JS de validação de formulário aprimorados
+- NPM scripts modificados
+- Novos packages: `mongoose` e `validator`
+
 ## Versão 0.0.8 - 31.03.2020
 - Mudança nos formulários
-- Tamanho mínimo da senha diminuido
+- Tamanho mínimo da senha alterado
 
 ## Versão 0.0.7 - 30.03.2020
 - Árvore de diretórios atualizada

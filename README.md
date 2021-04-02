@@ -10,6 +10,8 @@ Tecnologias utilizadas:
 - [NodeJS](https://nodejs.org/)
 - Framework [Express](https://expressjs.com/)
 - Template engine [Handlebars](https://handlebarsjs.com/) através do módulo [hbs](https://www.npmjs.com/package/hbs)
+- Banco de dados [MongoDB](https://www.mongodb.com/)
+- Módulo [validator](https://www.npmjs.com/package/validator)
 
 Gerenciamento do projeto:
 - [Figma](https://www.figma.com/)

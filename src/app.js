@@ -1,11 +1,21 @@
 // Dependências
 const express = require("express");
+const app = express();
 const hbs = require("hbs");
 const path = require("path");
 
+// Banco de dados
+require('./db/mongoose');
+
+// Rotas
+// const challengesRouter = require('./routers/challenges');
+// const rewardsRouter = require('./routers/rewards');
+// const usersChallengesRouter = require('./routers/userchallenges');
+// const usersRouter = require('./routers/users');
+const loginRouter = require('./routers/login');
+
 // Variáveis
-const app = express();
-const porta = 3000;
+const porta = process.env.PORT || 3000;
 
 // Paths
 const publicFolderPath = path.join(__dirname, '../public');
@@ -20,40 +30,15 @@ hbs.registerPartials(partialsPath);
 // Use
 app.use(express.static(publicFolderPath));
 app.use(express.urlencoded({ extended: true }));
+// app.use(challengesRouter);
+// app.use(rewardsRouter);
+// app.use(userChallengesRouter);
+// app.use(usersRouter);
+app.use(loginRouter);
 
 // Inicia o servidor
 app.listen(porta, () => {
   console.log(`Executando na porta ${porta}.`);
-});
-
-// Rotas
-app.get("/", function(req, res) {
-  res.render('login');
-});
-
-app.get("/login", function(req, res) {
-  res.render('login');
-});
-
-app.get("/cadastro", function(req, res) {
-  res.render('cadastro');
-});
-
-app.post("/logar", function(req, res) {
-  let username = req.body.username;
-  let password = req.body.password;
-
-  if(username==='admin' && password==='admin') {
-    res.render('pagina-inicial', {
-      name: username
-    });
-  } else {
-    res.render('login');
-  }
-});
-
-app.post("/cadastrar", function(req, res) {
-  res.render('login');
 });
 
 app.get("/inicio", function(req, res) {
