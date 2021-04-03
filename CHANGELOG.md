@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Versão 0.0.10 - 02.04.2020
+- Novos packages: `jsonwebtoken` e `bcryptjs`
+- Sistema de autenticação de usuário e criptografia de senha
+- Bug: problema na criptografia da senha
+
 ## Versão 0.0.9 - 01.04.2020
 - Tamanho mínimo da senha alterado de 4 para 6
 - Estrutura da mensagem de alerta modificada

@@ -1,6 +1,5 @@
 // Dependências
 const express = require("express");
-const app = express();
 const hbs = require("hbs");
 const path = require("path");
 
@@ -15,6 +14,7 @@ require('./db/mongoose');
 const loginRouter = require('./routers/login');
 
 // Variáveis
+const app = express();
 const porta = process.env.PORT || 3000;
 
 // Paths
@@ -41,6 +41,7 @@ app.listen(porta, () => {
   console.log(`Executando na porta ${porta}.`);
 });
 
+// Outras rotas
 app.get("/inicio", function(req, res) {
   res.render('pagina-inicial');
 });
@@ -53,9 +54,9 @@ app.get("/recompensa", function(req, res) {
   res.render('recompensa');
 });
 
-app.get("/sair", function(req, res) {
-  res.render('login');
-});
+// app.get("/sair", function(req, res) {
+//   res.render('login');
+// });
 
 app.get("/admin", function(req, res) {
   res.render('administrador');
