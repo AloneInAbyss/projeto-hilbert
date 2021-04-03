@@ -2,6 +2,7 @@
 const express = require("express");
 const hbs = require("hbs");
 const path = require("path");
+const cookieParser = require("cookie-parser");
 
 // Banco de dados
 require('./db/mongoose');
@@ -29,7 +30,9 @@ hbs.registerPartials(partialsPath);
 
 // Use
 app.use(express.static(publicFolderPath));
+app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 // app.use(challengesRouter);
 // app.use(rewardsRouter);
 // app.use(userChallengesRouter);
@@ -42,9 +45,9 @@ app.listen(porta, () => {
 });
 
 // Outras rotas
-app.get("/inicio", function(req, res) {
-  res.render('pagina-inicial');
-});
+// app.get("/inicio", auth, function(req, res) {
+//   res.render('pagina-inicial');
+// });
 
 app.get("/desafio", function(req, res) {
   res.render('desafio');
@@ -62,6 +65,6 @@ app.get("/admin", function(req, res) {
   res.render('administrador');
 });
 
-app.get('*', (req, res) => {
-  res.render('login');
-});
+// app.get('*', (req, res) => {
+//   res.render('login');
+// });

@@ -1,6 +1,10 @@
 # CHANGELOG
 
 ## Versão 0.0.10 - 02.04.2020
+- Novo package: `cookie-parser`
+- Sistema de login com cookie de autenticação
+
+## Versão 0.0.10 - 02.04.2020
 - Novos packages: `jsonwebtoken` e `bcryptjs`
 - Sistema de autenticação de usuário e criptografia de senha
 - Bug: problema na criptografia da senha

@@ -58,7 +58,13 @@ router.post('/logar', async (req, res) => {
   try {
     const user = await User.findByCredentials(req.body.username, req.body.password);
     const token = await user.generateAuthToken();
-    res.send({ user, token });
+    res.cookie('auth_token', token);
+    //res.redirect('/inicio');  
+    //res.send({ user, token });
+    res.render('pagina-inicial', {
+      name: req.body.username,
+    });
+    // res.send('Login concluído!')
   } catch (e) {
     //res.status(400).send('Nome de usuário ou senha incorretos');
     res.render('login', {
@@ -104,7 +110,11 @@ router.post('/cadastrar', async (req, res) => {
   try {
     await user.save();
     const token = await user.generateAuthToken();
-    res.status(201).send({ user, token });
+    res.cookie('auth_token', token);
+    //res.status(201).send({ user, token });
+    res.render('pagina-inicial', {
+      name: req.body.username,
+    });
   } catch (e) {
     // res.status(400).send(e);
     return res.render('cadastro', {
@@ -114,17 +124,22 @@ router.post('/cadastrar', async (req, res) => {
   }
 });
 
+router.get("/inicio", auth, function(req, res) {
+  res.render('pagina-inicial');
+});
+
 router.get('/me', auth, async (req, res) => {
   res.send(req.user);
 });
 
-router.post('/sair', auth, async (req, res) => {
+router.get('/sair', auth, async (req, res) => {
   try {
     req.user.tokens = req.user.tokens.filter((token) => {
       return token.token !== req.token;
     })
     await req.user.save();
-
+    res.clearCookie('auth_token');
+    
     res.render('login', {
       message: true,
       alertMessage: 'Desconectado com sucesso!'
@@ -133,5 +148,15 @@ router.post('/sair', auth, async (req, res) => {
     res.status(500).send();
   }
 });
+
+router.get('/cookies', (req, res) => {
+  // Cookies that have not been signed
+  console.log('Cookies: ', req.cookies)
+ 
+  // Cookies that have been signed
+  console.log('Signed Cookies: ', req.signedCookies)
+
+  res.send(Object.values(req.cookies) + ' ' + Object.values(req.signedCookies))
+})
 
 module.exports = router;
