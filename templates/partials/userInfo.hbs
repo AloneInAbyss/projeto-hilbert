@@ -1,0 +1,20 @@
+<!-- INFORMAÇÕES DO USUÁRIO -->
+<ul class="nav justify-content-between bg-light mb-2">
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Bem-vindo, <strong>{{name}}</strong></a>
+  </li>
+  <div class="d-flex">
+    {{#if admin}}
+    <li class="nav-item">
+      <a class="nav-link" href="/admin">Admin</a>
+    </li>
+    {{else}}
+    <li class="nav-item d-none">
+      <a class="nav-link" href="/admin">Admin</a>
+    </li>
+    {{/if}}
+    <li class="nav-item">
+      <a class="nav-link active" href="/sair">Sair</a>
+    </li>
+  </div>
+</ul>

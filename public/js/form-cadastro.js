@@ -11,13 +11,6 @@ function validateForm() {
   let psMinLength = 6;
   let psMaxLength = 16;
 
-  // if (password !== password_check) {
-
-  //   alert_message.innerHTML = "As senhas diferem!";
-  //   alert.classList.remove("d-none");
-
-  // } else
-  
   if (username.length < psMinLength) {
     
     alert_message.innerHTML = `O nome de usuário precisa conter pelo menos ${psMinLength} caracteres`;
@@ -44,9 +37,7 @@ function validateForm() {
     alert_message.innerHTML = `A senha não pode ter mais de ${psMaxLength} caracteres`;
     alert.classList.remove("d-none");
     
-  } else
-  
-  {
+  } else {
 
     alert.classList.add("d-none");
 

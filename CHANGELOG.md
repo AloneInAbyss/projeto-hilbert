@@ -1,6 +1,12 @@
 # CHANGELOG
 
-## Versão 0.0.10 - 02.04.2020
+## Versão 0.0.12 - 04.04.2020
+- Refatoração do código
+- Agora as rotas incorretas redirecionam para a página de login/inicio
+- Quem já está logado não consegue logar/cadastrar
+- Modelo para as recompensas criado
+
+## Versão 0.0.11 - 02.04.2020
 - Novo package: `cookie-parser`
 - Sistema de login com cookie de autenticação
 

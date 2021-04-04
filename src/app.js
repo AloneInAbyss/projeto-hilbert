@@ -8,12 +8,9 @@ const cookieParser = require("cookie-parser");
 require('./db/mongoose');
 
 // Rotas
-// const challengesRouter = require('./routers/challenges');
-// const rewardsRouter = require('./routers/rewards');
-// const usersChallengesRouter = require('./routers/userchallenges');
-// const usersRouter = require('./routers/users');
 const loginRouter = require('./routers/login');
 const challengesRouter = require('./routers/challenges');
+const mainRouter = require('./routers/mainroutes');
 
 // Variáveis
 const app = express();
@@ -31,42 +28,16 @@ hbs.registerPartials(partialsPath);
 
 // Use
 app.use(express.static(publicFolderPath));
-app.use(express.json())
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-// app.use(challengesRouter);
-// app.use(rewardsRouter);
-// app.use(userChallengesRouter);
-// app.use(usersRouter);
+
+// Routers
 app.use(loginRouter);
 app.use(challengesRouter);
+app.use(mainRouter);
 
 // Inicia o servidor
 app.listen(porta, () => {
   console.log(`Executando na porta ${porta}.`);
 });
-
-// Outras rotas
-// app.get("/inicio", auth, function(req, res) {
-//   res.render('pagina-inicial');
-// });
-
-app.get("/desafio", function(req, res) {
-  res.render('desafio');
-});
-
-app.get("/recompensa", function(req, res) {
-  res.render('recompensa');
-});
-
-// app.get("/sair", function(req, res) {
-//   res.render('login');
-// });
-
-app.get("/admin", function(req, res) {
-  res.render('administrador');
-});
-
-// app.get('*', (req, res) => {
-//   res.render('login');
-// });

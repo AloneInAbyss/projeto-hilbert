@@ -12,9 +12,10 @@
     "url": "git+https://github.com/AloneInAbyss/projeto-hilbert.git"
   },
   "keywords": [
+    "JavaScript",
     "Bootstrap",
     "Node",
-    "JavaScript"
+    "MongoDB"
   ],
   "author": "Thiago Assi",
   "license": "ISC",

@@ -3,6 +3,7 @@ const Challenge = require('../models/challenge');
 const auth = require('../middleware/auth');
 const router = new express.Router();
 
+// Rotas
 router.post('/novodesafio', auth, async (req, res) => {
   const challenge = new Challenge({
       ...req.body,

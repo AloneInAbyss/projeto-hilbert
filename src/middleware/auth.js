@@ -3,7 +3,12 @@ const User = require('../models/user');
 
 const auth = async (req, res, next) => {
   try {
+    // Para testes com o Insomnia
     //const token = req.header('Authorization').replace('Bearer ', '');
+
+    // Para testes com o navegador
+    // const token = req.cookies['auth_token'];
+
     const token = req.cookies['auth_token'];
     const decoded = jwt.verify(token, 'projetohilbert');
     const user = await User.findOne({ _id: decoded._id, 'tokens.token': token });
@@ -14,9 +19,13 @@ const auth = async (req, res, next) => {
 
     req.token = token;
     req.user = user;
+    req.logged = true;
+
     next();
   } catch (e) {
-    res.status(401).send({ error: 'Por favor faça login novamente.' })
+    req.logged = false;
+
+    next();
   }
 }
 
