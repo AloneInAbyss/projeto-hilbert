@@ -13,6 +13,7 @@ require('./db/mongoose');
 // const usersChallengesRouter = require('./routers/userchallenges');
 // const usersRouter = require('./routers/users');
 const loginRouter = require('./routers/login');
+const challengesRouter = require('./routers/challenges');
 
 // Variáveis
 const app = express();
@@ -38,6 +39,7 @@ app.use(cookieParser());
 // app.use(userChallengesRouter);
 // app.use(usersRouter);
 app.use(loginRouter);
+app.use(challengesRouter);
 
 // Inicia o servidor
 app.listen(porta, () => {

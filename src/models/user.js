@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const Challenge = require('./challenge');
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -48,6 +49,13 @@ const userSchema = new mongoose.Schema({
   }]
 });
 
+// Referencia os desafios do usuário
+userSchema.virtual('challenges', {
+  ref: 'Challenge',
+  localField: '_id',
+  foreignField: 'owner'
+});
+
 // Não envia a senha e os tokens ao solicitar a lista de usuários
 userSchema.methods.toJSON = function () {
   const user = this;
@@ -87,6 +95,13 @@ userSchema.statics.findByCredentials = async (username, password) => {
 
   return user;
 }
+
+// Apaga os desafios quando o usuário for apagado
+userSchema.pre('remove', async function (next) {
+  const user = this;
+  await Challenge.deleteMany({ owner: user._id });
+  next();
+});
 
 // Criptografa a senha antes de salvar
 // userSchema.pre('save', async function (next) {

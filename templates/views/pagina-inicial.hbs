@@ -53,9 +53,51 @@
               Desafios em andamento
             </div>
             <ul class="list-group list-group-flush">
+            {{#if emptyInProgress}}
+
+              <li class="list-group-item py-0 px-3 bg-dark border-0">
+                <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3 mb-3">
+                  
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item border-0">
+                        <p>
+
+                          Nenhum desafio foi encontrado!
+                          
+                        </p>
+                      </li>
+                    </ul>
+                </div>
+              </li>
+
+            {{else}}
+              
+              {{#each content}}
+                {{#with this}}
+                  {{#if completed}}
+                  {{else}}
+                    <li class="list-group-item py-0 px-3 bg-dark border-0">
+                      <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3 mb-3">
+                        <div class="card-header rounded-0 bg-danger text-light border-dark">
+                          {{title}}
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item border-0">
+                            <p>
+                              {{description}}
+                            </p>
+                            <a href="/desafio" class="btn btn-danger">Ver desafio</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  {{/if}}
+                {{/with}}
+              {{/each}}
+            {{/if}}
+            <!--
               <li class="list-group-item py-0 px-3 bg-dark border-0">
                 
-                <!-- DESAFIO -->
                 <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3">
                   <div class="card-header rounded-0 bg-danger text-light border-dark">
                     Multiples of 3 and 5
@@ -81,7 +123,6 @@
 
               <li class="list-group-item py-3 px-3 bg-dark border-0">
 
-                <!-- DESAFIO -->
                 <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3 mb-3">
                   <div class="card-header rounded-0 bg-danger text-light border-dark">
                     Even Fibonacci numbers
@@ -109,8 +150,9 @@
                 </div>
 
               </li> 
-
+              -->
             </ul>
+            
           </div>
           <!-- /LISTA DE DESAFIOS EM ANDAMENTO -->
 
@@ -120,9 +162,53 @@
               Desafios concluídos
             </div>
             <ul class="list-group list-group-flush">
+              {{#if emptyCompleted}}
+
+              <li class="list-group-item py-0 px-3 bg-dark border-0">
+                <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3 mb-3">
+                  
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item border-0">
+                        <p>
+
+                          Nenhum desafio concluído ainda!
+                          
+                        </p>
+                      </li>
+                    </ul>
+                </div>
+              </li>
+
+              {{else}}
+                
+                {{#each content}}
+                  {{#with this}}
+                    {{#if completed}}
+                      <li class="list-group-item py-0 px-3 bg-dark border-0">
+                        <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3 mb-3">
+                          <div class="card-header rounded-0 bg-success text-light border-dark">
+                            {{title}}
+                          </div>
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item border-0">
+                              <p>
+                                {{description}}
+                              </p>
+                              <a href="/desafio" class="btn btn-success">Ver desafio</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                    {{/if}}
+                  {{/with}}
+                {{/each}}
+                
+              {{/if}}
+
+
+            <!--
               <li class="list-group-item py-0 px-3 bg-dark border-0">
                 
-                <!-- DESAFIO -->
                 <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3">
                   <div class="card-header rounded-0 bg-success text-light border-dark">
                     Largest prime factor
@@ -148,7 +234,6 @@
 
               <li class="list-group-item py-3 px-3 bg-dark border-0">
 
-                <!-- DESAFIO -->
                 <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3 mb-3">
                   <div class="card-header rounded-0 bg-success text-light border-dark">
                     Largest palindrome product
@@ -171,7 +256,7 @@
                 </div>
 
               </li> 
-
+              -->
             </ul>
           </div>
           <!-- /LISTA DE DESAFIOS CONCLUÍDOS -->

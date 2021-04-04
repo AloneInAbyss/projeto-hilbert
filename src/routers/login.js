@@ -1,5 +1,6 @@
 const express = require('express');
 const User = require('../models/user');
+const Challenge = require('../models/challenge');
 const auth = require('../middleware/auth');
 const router = new express.Router();
 
@@ -124,8 +125,38 @@ router.post('/cadastrar', async (req, res) => {
   }
 });
 
-router.get("/inicio", auth, function(req, res) {
-  res.render('pagina-inicial');
+router.get("/inicio", auth, async function(req, res) {
+  let user = req.user;
+  const challenges = await Challenge.find({ owner: user._id });
+
+  let emptyInProgress = true;
+  let emptyCompleted = true;
+  let content = [];
+
+  if (challenges.length !== 0) {
+
+    for (desafio of challenges) {
+      content.push({
+        title: desafio.title, 
+        description: desafio.description, 
+        completed: desafio.completed
+      });
+      if (desafio.completed) { emptyCompleted = false; }
+      if (!desafio.completed) { emptyInProgress = false; }
+    }
+
+    console.log(content);
+  } else {
+    emptyInProgress = true;
+    emptyCompleted = true;
+  }
+
+  res.render('pagina-inicial', {
+    name: user.username,
+    emptyInProgress: emptyInProgress,
+    emptyCompleted: emptyCompleted,
+    content: content
+  });
 });
 
 router.get('/me', auth, async (req, res) => {
