@@ -74,6 +74,7 @@ router.get("/inicio", auth, async function(req, res) {
   }
 
   let user = req.user;
+  let admin = (user.isAdmin) ? true : false;
   const challenges = await Challenge.find({ owner: user._id });
 
   let emptyInProgress = true;
@@ -88,7 +89,7 @@ router.get("/inicio", auth, async function(req, res) {
         title: desafio.title, 
         description: desafio.description, 
         completed: desafio.completed,
-        id: desafio._id
+        id: desafio._id.toString()
       });
       if (desafio.completed) { emptyCompleted = false; }
       if (!desafio.completed) { emptyInProgress = false; }
@@ -103,7 +104,8 @@ router.get("/inicio", auth, async function(req, res) {
     name: user.username,
     emptyInProgress: emptyInProgress,
     emptyCompleted: emptyCompleted,
-    content: content
+    content: content,
+    admin: admin
   });
 
 });

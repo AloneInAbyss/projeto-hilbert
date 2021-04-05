@@ -26,50 +26,59 @@
           <div class="card rounded-0 border-0 w-100 bg-transparent mb-2">
 
             <div class="card-header rounded-0 bg-dark text-light border-0 h5">
-
-              <!-- NAV -->
               <ul class="nav justify-content-between">
                 <li class="nav-item p-0">
-                  <a class="nav-link text-light px-0" href="/inicio#andamento">Desafios em andamento</a>
+                  <p class="text-light px-0 py-2 my-0">Desafio "{{desafio.name}}"</p>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active px-0" href="/inicio">Voltar</a>
                 </li>
               </ul>
-
             </div>
+
             <ul class="list-group list-group-flush">
+
               <li class="list-group-item pt-0 pb-3 px-3 bg-dark border-0">
-                
-                <!-- DESAFIO -->
-                <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3">
+                <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3 mb-3">
+                  {{#if desafio.completed}}
+                  <div class="card-header rounded-0 bg-success text-light border-dark">
+                  {{else}}
                   <div class="card-header rounded-0 bg-danger text-light border-dark">
-                    <strong>Multiples of 3 and 5</strong>
+                  {{/if}}
+                    <strong>{{desafio.name}}</strong>
                   </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item border-0">
 
                       <p>
-                        If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
-                      </p>
-
-                      <p>
-                        Find the sum of all the multiples of 3 or 5 below 1000.
+                        {{desafio.description}}
                       </p>
                       
                       <div class="d-flex d-sm-none">
-                        <div class="btn-group-vertical mx-auto w-50" role="group" aria-label="Basic example">
-                          <button type="button" class="btn btn-success">Concluir</button>
-                          <button type="button" class="btn btn-warning">Recompensa</button>
-                          <button type="button" class="btn btn-danger">Remover</button>
+                        <div class="btn-group-vertical mx-auto w-50" role="group">
+                          {{#if desafio.completed}}
+                          <a type="button" class="btn btn-success disabled" href="">Concluir</a>
+                          <a type="button" class="btn btn-warning" href="/recompensa?={{desafio.recompensa}}">Recompensa</a>
+                          <a type="button" class="btn btn-danger" href="/desafio/cancelar?={{desafio.id}}">Cancelar</a>
+                          {{else}}
+                          <a type="button" class="btn btn-success" href="/desafio/concluir?={{desafio.id}}">Concluir</a>
+                          <a type="button" class="btn btn-warning disabled" href="">Recompensa</a>
+                          <a type="button" class="btn btn-danger disabled" href="">Cancelar</a>
+                          {{/if}}
                         </div>
                       </div>
 
                       <div class="d-none d-sm-flex">
-                        <div class="btn-group mx-auto" role="group" aria-label="Basic example">
-                          <button type="button" class="btn btn-success">Concluir</button>
-                          <button type="button" class="btn btn-warning">Recompensa</button>
-                          <button type="button" class="btn btn-danger">Remover</button>
+                        <div class="btn-group mx-auto" role="group">
+                          {{#if desafio.completed}}
+                          <a type="button" class="btn btn-success disabled" href="">Concluir</a>
+                          <a type="button" class="btn btn-warning" href="/recompensa?id={{desafio.recompensa}}">Recompensa</a>
+                          <a type="button" class="btn btn-danger" href="/desafio/cancelar?id={{desafio.id}}">Cancelar</a>
+                          {{else}}
+                          <a type="button" class="btn btn-success" href="/desafio/concluir?id={{desafio.id}}">Concluir</a>
+                          <a type="button" class="btn btn-warning disabled" href="">Recompensa</a>
+                          <a type="button" class="btn btn-danger disabled" href="">Cancelar</a>
+                          {{/if}}
                         </div>
                       </div>
 

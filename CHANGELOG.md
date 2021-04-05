@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## Versão 0.0.13 - 04.04.2020
+- Página do desafio finalizada
+- Rotas para concluir/cancelar desafios
+- Botão para acessar área de `Admin` acoplado
+- Alteração no texto da página inicial
+
 ## Versão 0.0.12 - 04.04.2020
 - Refatoração do código
 - Agora as rotas incorretas redirecionam para a página de login/inicio
