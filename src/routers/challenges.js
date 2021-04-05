@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Challenge = require('../models/challenge');
+const Reward = require('../models/reward');
 const auth = require('../middleware/auth');
 const router = new express.Router();
 
@@ -14,7 +15,13 @@ router.get('/desafio/cancelar', auth, async function (req, res) {
   let user = req.user;
   let id = req.query.id;
 
-  const dbID = mongoose.Types.ObjectId(id);
+  let dbID;
+  try {
+    dbID = mongoose.Types.ObjectId(id);
+  } catch {
+    return res.redirect('/inicio');
+  }
+
   var challenges = await Challenge.findOne({ _id: dbID });
 
   if (challenges !== null) {
@@ -56,11 +63,26 @@ router.get('/desafio/concluir', auth, async function (req, res) {
   let user = req.user;
   let id = req.query.id;
 
-  const dbID = mongoose.Types.ObjectId(id);
+  let dbID;
+  try {
+    dbID = mongoose.Types.ObjectId(id);
+  } catch {
+    return res.redirect('/inicio');
+  }
+  
   var challenges = await Challenge.findOne({ _id: dbID });
 
   if (challenges !== null) {
     if (challenges.owner.toString() !== user._id.toString()) {
+      return res.redirect('/inicio');
+    }
+
+    const rewards = await Reward.findOne({ owner: dbID });
+
+    let rwid;
+    if (rewards !== null) {
+      rwid = rewards._id;
+    } else {
       return res.redirect('/inicio');
     }
 
@@ -79,7 +101,7 @@ router.get('/desafio/concluir', auth, async function (req, res) {
         name: challenges.title,
         description: challenges.description,
         completed: challenges.completed,
-        recompensa: '',
+        recompensa: rwid,
         id: challenges._id.toString()
       }
     });

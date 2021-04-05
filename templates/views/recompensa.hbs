@@ -27,10 +27,10 @@
             <div class="card-header rounded-0 bg-dark text-light border-0 h5">
               <ul class="nav justify-content-between">
                 <li class="nav-item p-0">
-                  <a class="nav-link text-light px-0" href="/inicio#andamento">Recompensa</a>
+                  <a class="nav-link text-light px-0" href="/inicio">Recompensa</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active px-0" href="/inicio">Voltar</a>
+                  <a class="nav-link active px-0" href="/desafio?id={{desafio.id}}">Voltar</a>
                 </li>
               </ul>
             </div>
@@ -40,7 +40,7 @@
                 <!-- RECOMPENSA -->
                 <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3">
                   <div class="card-header rounded-0 bg-danger text-light border-dark">
-                    <strong>Largest prime factor</strong>
+                    <strong>{{desafio.name}}</strong>
                   </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item border-0 d-flex">
@@ -50,7 +50,7 @@
                         style="overflow-x: hidden;"
                         width="560" 
                         height="315" 
-                        src="https://www.youtube.com/embed/8So9OCr_HEA" 
+                        src="{{recompensa.link}}" 
                         title="YouTube video player" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 

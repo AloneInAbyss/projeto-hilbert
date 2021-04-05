@@ -10,9 +10,10 @@ require('./db/mongoose');
 // Rotas
 const loginRouter = require('./routers/login');
 const challengesRouter = require('./routers/challenges');
+const rewardsRouter = require('./routers/rewards');
 const mainRouter = require('./routers/mainroutes');
 
-// Variáveis
+// Express
 const app = express();
 const porta = process.env.PORT || 3000;
 
@@ -35,6 +36,7 @@ app.use(cookieParser());
 // Routers
 app.use(loginRouter);
 app.use(challengesRouter);
+app.use(rewardsRouter);
 app.use(mainRouter);
 
 // Inicia o servidor

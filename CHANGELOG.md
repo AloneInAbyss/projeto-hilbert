@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## Versão 0.0.14 - 05.04.2020
+- Criação da página de recompensas
+- Rotas para acessar as recompensas de cada desafio
+- Novo router para as recompensas
+
 ## Versão 0.0.13 - 04.04.2020
 - Página do desafio finalizada
 - Rotas para concluir/cancelar desafios
