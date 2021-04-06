@@ -36,3 +36,16 @@ form {
 .row-footer {
   height: 20%;
 }
+
+/* PERSONALIZADO */
+a.link-transition {
+  display: inline-block;
+  text-decoration:none;
+  transition: 0.3s;
+  cursor:pointer; 
+}
+
+a.link-transition:hover {
+  transform: scale(1.01);
+  transition: 0.3s;
+}

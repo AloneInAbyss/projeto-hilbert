@@ -9,6 +9,7 @@ require('./db/mongoose');
 
 // Rotas
 const loginRouter = require('./routers/login');
+const usersRouter = require('./routers/users');
 const challengesRouter = require('./routers/challenges');
 const rewardsRouter = require('./routers/rewards');
 const mainRouter = require('./routers/mainroutes');
@@ -35,6 +36,7 @@ app.use(cookieParser());
 
 // Routers
 app.use(loginRouter);
+app.use(usersRouter);
 app.use(challengesRouter);
 app.use(rewardsRouter);
 app.use(mainRouter);

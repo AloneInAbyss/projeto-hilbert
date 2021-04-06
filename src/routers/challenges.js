@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Challenge = require('../models/challenge');
 const Reward = require('../models/reward');
 const auth = require('../middleware/auth');
+const authAdmin = require('../middleware/auth-admin');
 const router = new express.Router();
 
 // Rotas
@@ -107,6 +108,27 @@ router.get('/desafio/concluir', auth, async function (req, res) {
     });
   } else {
     res.redirect('/inicio');
+  }
+
+});
+
+router.post('/admin/desafios/criar', authAdmin, async (req, res) => {
+
+  if (!req.logged) {
+    return res.redirect('/login');
+  }
+
+  let challenge = new Challenge({
+    title: req.body.title,
+    description: req.body.description,
+    owner: req.body.owner
+  });
+
+  try {
+    await challenge.save();
+    res.redirect('/admin');
+  } catch (e) {
+    res.redirect('/admin');
   }
 
 });

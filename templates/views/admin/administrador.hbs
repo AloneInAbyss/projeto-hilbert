@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  
+  {{>head}}
+
+  <title>Bem-vindo ao Projeto Hilbert!</title>
+</head>
+
+<body>
+  
+  <!-- CONTAINER -->
+  <div class="container vh-100">
+    
+    {{>header}}
+    
+    <!-- MAIN -->
+    <main class="row no-gutters row-main">
+      <div class="row no-gutters align-items-center justify-content-center w-100">
+        <div class="col-12 col-md-10">
+          
+          {{>userInfo}}
+
+          <!-- LISTA DE USUÁRIOS -->
+          <div class="card rounded-0 border-0 w-100 bg-transparent mb-2">
+
+            <div class="card-header rounded-0 bg-dark text-light border-0 h5">
+              <ul class="nav justify-content-between">
+                <li class="nav-item p-0">
+                  <p class="text-light px-0 py-2 my-0">Área administrativa</p>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active px-0" href="/inicio">Voltar</a>
+                </li>
+              </ul>
+            </div>
+
+            <ul class="list-group list-group-flush">
+
+              <!-- USUÁRIOS -->
+              <li class="list-group-item py-0 pb-3 px-3 bg-dark border-0">
+
+                <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3">
+                  <div class="card-header rounded-0 bg-primary text-light border-dark">
+                    Usuários administradores
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item border-0">
+
+                      <form method="POST" action="/admin" class="bg-white">
+                      <input type="hidden" name="optype" value="user">
+                        <table class="table mx-2">
+                          <thead>
+                            <tr>
+                              <th scope="col" class="border-top-0"></th>
+                              <th scope="col" class="border-top-0">Usuário</th>
+                              <th scope="col" class="border-top-0">Administrador?</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {{#each usercontent}}
+                              {{#with this}}
+                              <tr>
+                                <td>
+                                  <div class="form-check pb-3">
+                                    <input class="form-check-input" type="radio" name="user" id="user-{{id}}" value="{{id}}" required>
+                                  </div>
+                                </td>
+                                <td>
+                                  <label for="user-{{id}}">
+                                    {{name}}
+                                  </label>
+                                </td>
+                                <td>
+                                  <label for="user-{{id}}">
+                                    {{#if admin}}
+                                      Sim
+                                    {{else}}
+                                      Não
+                                    {{/if}}
+                                  </label>
+                                </td>
+                              </tr>
+                              {{/with}}
+                            {{/each}}
+                          </tbody>
+                        </table>
+                      
+                        <div class="d-flex d-sm-none">
+                          <div class="btn-group-vertical mx-auto w-50" role="group">
+                            <!--<input type="submit" class="btn btn-success" name="action" value="Registrar">-->
+                            <input type="submit" class="btn btn-warning" name="action" value="Editar">
+                            <input type="submit" class="btn btn-danger" name="action" value="Deletar">
+                          </div>
+                        </div>
+
+                        <div class="d-none d-sm-flex">
+                          <div class="btn-group mx-auto" role="group">
+                            <!--<input type="submit" class="btn btn-success" name="action" value="Registrar">-->
+                            <input type="submit" class="btn btn-warning" name="action" value="Editar">
+                            <input type="submit" class="btn btn-danger" name="action" value="Deletar">
+                          </div>
+                        </div>
+                      
+                      </form>
+
+                    </li>
+                  </ul>
+                </div>
+
+              </li>
+
+              <!-- DESAFIOS -->
+              <li class="list-group-item py-0 pb-3 px-3 bg-dark border-0">
+
+                <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3">
+                  <div class="card-header rounded-0 bg-primary text-light border-dark">
+                    Lista de Desafios
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item border-0">
+
+                      <form method="POST" action="/admin" class="bg-white">
+                        <input type="hidden" name="optype" value="challenge">
+                        <table class="table mx-2">
+                          <thead>
+                            <tr>
+                              <th scope="col" class="border-top-0"></th>
+                              <th scope="col" class="border-top-0">Título</th>
+                              <th scope="col" class="border-top-0">Completado?</th>
+                              <th scope="col" class="border-top-0">Usuário</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {{#each challengecontent}}
+                              {{#with this}}
+                              <tr>
+                                <td>
+                                  <div class="form-check pb-3">
+                                    <input class="form-check-input" type="radio" name="challenge" id="challenge-{{id}}" value="{{id}}" required>
+                                  </div>
+                                </td>
+                                <td>
+                                  <label for="challenge-{{id}}">
+                                    {{title}}
+                                  </label>
+                                </td>
+                                <td>
+                                  <label for="challenge-{{id}}">
+                                  {{#if completed}}
+                                    Sim
+                                  {{else}}
+                                    Não
+                                  {{/if}}
+                                  </label>
+                                </td>
+                                <td>
+                                  <label for="challenge-{{id}}">
+                                    {{owner}}
+                                  </label>
+                                </td>
+                              </tr>
+                              {{/with}}
+                            {{/each}}
+                          </tbody>
+                        </table>
+                      
+                        <div class="d-flex d-sm-none">
+                          <div class="btn-group-vertical mx-auto w-50" role="group">
+                            <input type="submit" class="btn btn-success" name="action" value="Registrar">
+                            <input type="submit" class="btn btn-warning" name="action" value="Editar">
+                            <input type="submit" class="btn btn-danger" name="action" value="Deletar">
+                          </div>
+                        </div>
+
+                        <div class="d-none d-sm-flex">
+                          <div class="btn-group mx-auto" role="group">
+                            <input type="submit" class="btn btn-success" name="action" value="Registrar">
+                            <input type="submit" class="btn btn-warning" name="action" value="Editar">
+                            <input type="submit" class="btn btn-danger" name="action" value="Deletar">
+                          </div>
+                        </div>
+
+                      </form>
+                    
+                    </li>
+                  </ul>
+                </div>
+
+              </li> 
+
+              <!-- RECOMPENSAS -->
+              <li class="list-group-item py-0 pb-3 px-3 bg-dark border-0">
+
+                <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3">
+                  <div class="card-header rounded-0 bg-primary text-light border-dark">
+                    Recompensas
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item border-0">
+
+                      <form method="POST" action="/admin" class="bg-white">
+                      <input type="hidden" name="optype" value="reward">
+                        <table class="table mx-2">
+                          <thead>
+                            <tr>
+                              <th scope="col" class="border-top-0"></th>
+                              <th scope="col" class="border-top-0">Link</th>
+                              <th scope="col" class="border-top-0">Desafio</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {{#each rewardcontent}}
+                              {{#with this}}
+                              <tr>
+                                <td>
+                                  <div class="form-check pb-3">
+                                    <input class="form-check-input" type="radio" name="reward" id="reward-{{id}}" value="{{id}}" required>
+                                  </div>
+                                </td>
+                                <td>
+                                  <label for="reward-{{id}}">
+                                    {{link}}
+                                  </label>
+                                </td>
+                                <td>
+                                  <label for="reward-{{id}}">
+                                    {{owner}}
+                                  </label>
+                                </td>
+                              </tr>
+                              {{/with}}
+                            {{/each}}
+                          </tbody>
+                        </table>
+                      
+                        <div class="d-flex d-sm-none">
+                          <div class="btn-group-vertical mx-auto w-50" role="group">
+                            <a href="" class="btn btn-success" name="action" value="Registrar">Registrar</a>
+                            <input type="submit" class="btn btn-warning" name="action" value="Editar">
+                            <input type="submit" class="btn btn-danger" name="action" value="Deletar">
+                          </div>
+                        </div>
+
+                        <div class="d-none d-sm-flex">
+                          <div class="btn-group mx-auto" role="group">
+                            <a href="" class="btn btn-success" name="action" value="Registrar">Registrar</a>
+                            <input type="submit" class="btn btn-warning" name="action" value="Editar">
+                            <input type="submit" class="btn btn-danger" name="action" value="Deletar">
+                          </div>
+                        </div>
+                      
+                      </form>
+                    
+                    </li>
+                  </ul>
+                </div>
+
+              </li> 
+
+            </ul>
+          </div>
+          <!-- /LISTA DE DESAFIOS EM ANDAMENTO -->
+
+        </div>
+      </div>
+    </main>
+    <!-- /MAIN -->
+    
+    <!-- FOOTER -->
+    <footer class="row no-gutters row-footer">
+      <div class="row no-gutters align-items-center w-100">
+        <div class="col">
+
+          
+          
+        </div>
+      </div>
+    </footer>
+    <!-- /FOOTER -->
+
+  </div>
+  <!-- /CONTAINER -->
+
+  <!-- jQuery & Bootstrap Bundle (inclui o Popper) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
