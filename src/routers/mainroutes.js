@@ -151,11 +151,13 @@ router.get('/admin', authAdmin, async function(req, res) {
   }
 
   if (rewards.length !== 0) {
-
+    
     for (recompensa of rewards) {
+      let owner = await Challenge.findOne({ _id: recompensa.owner});
+
       rewardcontent.push({
         link: recompensa.link,
-        owner: recompensa.owner,
+        owner: owner.title,
         id: recompensa._id.toString()
       });
     }
@@ -262,6 +264,61 @@ router.post('/admin', authAdmin, async function(req, res) {
       return res.redirect('/admin');
     }
     
+  }
+  // RECOMPENSAS
+  else if (req.body.optype === "reward") {
+    // Registrar
+    if (req.body.action === 'Registrar') {
+
+      try {
+        challenges = await Challenge.find();
+      } catch {
+        return res.redirect('/admin');
+      }
+
+      res.render('admin/recompensas/recompensa-novo', {
+        name: user.username,
+        challenges,
+        admin
+      });
+    }
+    // Editar
+    else if (req.body.action === 'Editar') {
+
+      try {
+        challenges = await Challenge.find();
+      } catch {
+        return res.redirect('/admin');
+      }
+
+      try {
+        reward = await Reward.findOne({ _id: req.body.reward });
+        var challengereward = await Challenge.findOne({ _id: reward.owner });
+      } catch(e) {
+        return res.redirect('/admin');
+      }
+
+      if (reward.length !== 0) {
+        res.render('admin/recompensas/recompensa-alterar', {
+          name: user.username,
+          reward,
+          challenges,
+          challengereward: challengereward.title,
+          admin
+        });
+      } else {
+        return res.redirect('/admin');
+      }
+    } 
+    // Deletar
+    else if (req.body.action === 'Deletar') {
+      const reward = await Reward.findOneAndDelete({ _id: req.body.reward });
+      return res.redirect('/admin');
+    } 
+    // Outro
+    else {
+      return res.redirect('/admin');
+    }
   }
   
   else {

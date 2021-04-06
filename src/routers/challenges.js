@@ -138,8 +138,8 @@ router.post('/admin/desafios/criar', authAdmin, async (req, res) => {
   }*/
   try {
     await challenge.save();
+    res.redirect('/admin');
   } catch (e) {
-    console.log("Erro na challenge");
     res.redirect('/admin');
   }
   

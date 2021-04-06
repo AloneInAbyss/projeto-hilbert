@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  
+  {{>head}}
+
+  <title>Bem-vindo ao Projeto Hilbert!</title>
+</head>
+
+<body>
+  
+  <!-- CONTAINER -->
+  <div class="container vh-100">
+    
+    {{>header}}
+    
+    <!-- MAIN -->
+    <main class="row no-gutters row-main">
+      <div class="row no-gutters align-items-center justify-content-center w-100">
+        <div class="col-12 col-md-10">
+          
+          {{>userInfo}}
+
+          <!-- LISTA DE USUÁRIOS -->
+          <div class="card rounded-0 border-0 w-100 bg-transparent mb-2">
+
+            <div class="card-header rounded-0 bg-dark text-light border-0 h5">
+              <ul class="nav justify-content-between">
+                <li class="nav-item p-0">
+                  <p class="text-light px-0 py-2 my-0">Área administrativa</p>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active px-0" href="/admin">Voltar</a>
+                </li>
+              </ul>
+            </div>
+
+            <ul class="list-group list-group-flush">
+
+              <!-- EDITAR RECOMPENSA -->
+              <li class="list-group-item py-0 pb-3 px-3 bg-dark border-0">
+
+                <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3">
+                  <div class="card-header rounded-0 bg-primary text-light border-dark">
+                    Editar recompensa
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item border-0">
+
+                      <form method="POST" action="/admin/recompensas/alterar" class="bg-white">
+                        <input type="hidden" name="id" value="{{reward._id}}">
+                        <div class="form-group">
+                          <label for="reward-link">Link</label>
+                          <input type="text" required class="form-control" id="reward-link" name="link" value="{{reward.link}}">
+                        </div>
+                        <div class="form-group">
+                          <label for="reward-owner">Desafio da recompensa</label>
+                          <select class="form-control" id="reward-owner" name="owner">
+                            <option value="{{reward.owner}}" selected="selected">{{challengereward}}</option>
+                            {{#each challenges}}
+                            {{#with this}}
+                            <option value="{{id}}">{{title}}</option>
+                            {{/with}}
+                            {{/each}}
+                          </select>
+                        </div>
+                        <input type="submit" class="btn btn-success d-block mt-3" value="Confirmar">
+                      </form>
+
+                    </li>
+                  </ul>
+                </div>
+
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </main>
+    <!-- /MAIN -->
+    
+    <!-- FOOTER -->
+    <footer class="row no-gutters row-footer">
+      <div class="row no-gutters align-items-center w-100">
+        <div class="col">
+
+          
+          
+        </div>
+      </div>
+    </footer>
+    <!-- /FOOTER -->
+
+  </div>
+  <!-- /CONTAINER -->
+
+  <!-- jQuery & Bootstrap Bundle (inclui o Popper) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
