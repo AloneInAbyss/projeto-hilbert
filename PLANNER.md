@@ -9,3 +9,5 @@
   * Adicionar ao `title` o nome do desafio
 - Transformar os botões em formulários
 - Adicionar `<strong>` ao nome dos desafios
+- Aprimorar a responsividade das tabelas
+- Remover usuários duplicados na alteração dos desafios

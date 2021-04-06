@@ -137,11 +137,13 @@ router.get('/admin', authAdmin, async function(req, res) {
   if (challenges.length !== 0) {
 
     for (desafio of challenges) {
+      let owner = await User.findOne({ _id: desafio.owner});
+
       challengecontent.push({
         title: desafio.title,
         description: desafio.description,
         completed: desafio.completed,
-        owner: desafio.owner,
+        owner: owner.username,
         id: desafio._id.toString()
       });
     }
@@ -178,6 +180,7 @@ router.post('/admin', authAdmin, async function(req, res) {
 
   let users, challenges, rewards;
   let user = req.user;
+  let admin = (user.isAdmin) ? true : false;
 
   // USUÁRIOS
   if (req.body.optype === "user") {
@@ -193,7 +196,8 @@ router.post('/admin', authAdmin, async function(req, res) {
           name: user.username,
           user: users[0].username,
           userid: users[0].id,
-          admin: users[0].isAdmin
+          useradmin: users[0].isAdmin,
+          admin
         });
       } else if (req.body.action === 'Deletar') {
         const user = await User.findOneAndDelete({ _id: req.body.user });
@@ -206,10 +210,11 @@ router.post('/admin', authAdmin, async function(req, res) {
   
   // DESAFIOS
   else if (req.body.optype === "challenge") {
-    
+    // Registrar
     if (req.body.action === 'Registrar') {
       try {
         users = await User.find();
+        rewards = await Reward.find();
       } catch {
         return res.redirect('/admin');
       }
@@ -217,26 +222,47 @@ router.post('/admin', authAdmin, async function(req, res) {
       res.render('admin/desafios/desafio-novo', {
         name: user.username,
         users,
-        admin: users[0].isAdmin
+        rewards,
+        admin
       });
-    }/* else if (req.body.action === 'Editar') {
+    } 
+    // Editar
+    else if (req.body.action === 'Editar') {
       try {
-        challenges = await Challenge.find({ _id: req.body.challenge });
+        users = await User.find();
+      } catch {
+        return res.redirect('/admin');
+      }
+      try {
+        challenges = await Challenge.findOne({ _id: req.body.challenge });
+        var userchallenge = await User.findOne({ _id: challenges.owner });
       } catch(e) {
         return res.redirect('/admin');
       }
 
-      //const user = await User.findOneAndDelete({ _id: req.body.user });
-      //return res.redirect('/admin');
-    } else {res.send('nao')}*/
-    
-    
-    if (challenges.length !== 0) {
-      
-    } else {
+      if (challenges.length !== 0) {
+        res.render('admin/desafios/desafio-alterar', {
+          name: user.username,
+          users,
+          challenges,
+          userchallenge: userchallenge.username,
+          admin
+        });
+      } else {
+        return res.redirect('/admin');
+      }
+    } 
+    // Deletar
+    else if (req.body.action === 'Deletar') {
+      const challenge = await Challenge.findOneAndDelete({ _id: req.body.challenge });
+      return res.redirect('/admin');
+    } 
+    // Outro
+    else {
       return res.redirect('/admin');
     }
-  } 
+    
+  }
   
   else {
     return res.redirect('/admin');

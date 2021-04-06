@@ -113,38 +113,67 @@ router.get('/desafio/concluir', auth, async function (req, res) {
 });
 
 router.post('/admin/desafios/criar', authAdmin, async (req, res) => {
-
+  
   if (!req.logged) {
     return res.redirect('/login');
   }
-
+  
   let challenge = new Challenge({
     title: req.body.title,
     description: req.body.description,
     owner: req.body.owner
   });
 
+  
+  try {
+    let reward = Reward.findOne({ _id: req.body.rewardowner });
+    if (reward !== null) {
+      reward.owner = challenge._id;
+      console.log(challenge._id);
+      await reward.save();
+    }
+  } catch (e) {
+    console.log("Erro na reward");
+    res.redirect('/admin');
+  }
   try {
     await challenge.save();
-    res.redirect('/admin');
   } catch (e) {
+    console.log("Erro na challenge");
+    res.redirect('/admin');
+  }
+  
+});
+
+router.post('/admin/desafios/alterar', authAdmin, async (req, res) => {
+
+  if (!req.logged) {
+    return res.redirect('/login');
+  }
+
+
+  let challengeid = req.body.id;
+  let challengetitle = req.body.title;
+  let challengedescription = req.body.description;
+  let challengeowner = req.body.owner;
+
+  var challenges = await Challenge.findOne({ _id: challengeid });
+
+  if (challenges !== null) {
+    challenges.title = challengetitle;
+    challenges.description = challengedescription;
+    challenges.owner = challengeowner;
+    try {
+      await challenges.save();
+      res.redirect('/admin');
+    } catch {
+      res.redirect('/admin');
+    }
+  } else {
     res.redirect('/admin');
   }
 
 });
 
-// router.post('/novodesafio', auth, async (req, res) => {
-//   const challenge = new Challenge({
-//       ...req.body,
-//       owner: req.user._id
-//   });
-
-//   try {
-//       await challenge.save();
-//       res.status(201).send(challenge);
-//   } catch (e) {
-//       res.status(400).send(e);
-//   }
-// });
 
 module.exports = router;

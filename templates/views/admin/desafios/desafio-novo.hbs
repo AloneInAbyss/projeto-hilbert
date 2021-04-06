@@ -68,7 +68,18 @@
                             {{/each}}
                           </select>
                         </div>
-                        <input type="submit" class="btn btn-success d-block" value="Confirmar">
+                        <!--<div class="form-group">
+                          <label for="challenge-reward">Recompensa</label>
+                          <select class="form-control" id="challenge-owner" name="rewardowner">
+                            {{#each rewards}}
+                            {{#with this}}
+                            <option value="{{id}}">{{link}}</option>
+                            {{/with}}
+                            {{/each}}
+                          </select>
+                        </div>-->
+                        <small class="form-text text-muted">Não esqueça de criar uma recompensa para este desafio.</small>
+                        <input type="submit" class="btn btn-success d-block mt-3" value="Confirmar">
                       </form>
 
                     </li>

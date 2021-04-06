@@ -53,7 +53,7 @@
                         <table class="table mx-2">
                           <thead>
                             <tr>
-                              <th scope="col" class="border-top-0"></th>
+                              <th scope="col" class="border-top-0" style="width: 50px;"></th>
                               <th scope="col" class="border-top-0">Usuário</th>
                               <th scope="col" class="border-top-0">Administrador?</th>
                             </tr>
@@ -123,12 +123,12 @@
 
                       <form method="POST" action="/admin" class="bg-white">
                         <input type="hidden" name="optype" value="challenge">
-                        <table class="table mx-2">
+                        <table class="table mx-2" style="table-layout: fixed;">
                           <thead>
                             <tr>
-                              <th scope="col" class="border-top-0"></th>
+                              <th scope="col" class="border-top-0" style="width: 50px;"></th>
                               <th scope="col" class="border-top-0">Título</th>
-                              <th scope="col" class="border-top-0">Completado?</th>
+                              <th scope="col" class="border-top-0" style="overflow: hidden; white-space: nowrap;">Completado?</th>
                               <th scope="col" class="border-top-0">Usuário</th>
                             </tr>
                           </thead>
@@ -138,10 +138,10 @@
                               <tr>
                                 <td>
                                   <div class="form-check pb-3">
-                                    <input class="form-check-input" type="radio" name="challenge" id="challenge-{{id}}" value="{{id}}" required>
+                                    <input class="form-check-input" type="radio" name="challenge" id="challenge-{{id}}" value="{{id}}">
                                   </div>
                                 </td>
-                                <td>
+                                <td style="overflow: hidden; white-space: nowrap;">
                                   <label for="challenge-{{id}}">
                                     {{title}}
                                   </label>
@@ -155,7 +155,7 @@
                                   {{/if}}
                                   </label>
                                 </td>
-                                <td>
+                                <td style="overflow: hidden; white-space: nowrap;">
                                   <label for="challenge-{{id}}">
                                     {{owner}}
                                   </label>
