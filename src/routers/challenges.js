@@ -125,7 +125,7 @@ router.post('/admin/desafios/criar', authAdmin, async (req, res) => {
   });
 
   
-  try {
+  /*try {
     let reward = Reward.findOne({ _id: req.body.rewardowner });
     if (reward !== null) {
       reward.owner = challenge._id;
@@ -135,7 +135,7 @@ router.post('/admin/desafios/criar', authAdmin, async (req, res) => {
   } catch (e) {
     console.log("Erro na reward");
     res.redirect('/admin');
-  }
+  }*/
   try {
     await challenge.save();
   } catch (e) {
