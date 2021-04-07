@@ -13,11 +13,11 @@ Veja abaixo o guia de instalação de cada um desses programas.
 - [Clique aqui](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/GUIA-MONGODB.md) para ver o guia de instalação do MongoDB
 
 ### Baixando e Rodando o Projeto
-1. Nesta mesma página do GitHub, clique em "Code" e na opção "Download ZIP", para baixar os arquivos do projeto. Para facilitar o acesso pelo Prompt de Comando, salve os arquivos na Área de Trabalho.
+1. Nesta mesma página do GitHub, clique em "Code" e na opção "Download ZIP" para baixar os arquivos do projeto. Para facilitar o acesso pelo Prompt de Comando, salve os arquivos na Área de Trabalho.
 
 ![projeto-01](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/projeto-01.png)
 
-2. Extraia os arquivos. Novamente, para facilitar o acesso extraia a pasta na Área de Trabalho.
+2. Extraia os arquivos. Novamente, para facilitar o acesso extraia na Área de Trabalho.
 
 ![projeto-02](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/projeto-02.png)
 ![projeto-03](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/projeto-03.png)
