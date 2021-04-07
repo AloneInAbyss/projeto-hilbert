@@ -3,8 +3,8 @@
 ## Guia de Instalação
 
 **Programas Necessários**:
-1. NodeJS
-2. MongoDB
+- NodeJS
+- MongoDB
 
 O *NodeJS* será usado para executar o JavaScript em um *web server* em nossa própria máquina. O *MongoDB* é um banco de dados onde os dados da aplicação ficam armazenados. 
 
@@ -21,11 +21,11 @@ Veja abaixo o guia de instalação de cada um desses programas.
 
 ![node-03](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/node-03.png)
 
-3. Clique em "Next" para prosseguir com a instalação
+3. Clique em "Next" para prosseguir com a instalação.
 
 ![node-04](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/node-04.png)
 
-4. Aceite os termos de uso
+4. Aceite os termos de uso.
 
 ![node-05](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/node-05.png)
 
@@ -33,25 +33,25 @@ Veja abaixo o guia de instalação de cada um desses programas.
 
 ![node-06](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/node-06.png)
 
-6. Certifique-se de que as opções de instalação do **"Node.js"**, **"npm"** e **"Add to PATH"** estão marcadas
+6. Certifique-se de que as opções de instalação do **"Node.js"**, **"npm"** e **"Add to PATH"** estão marcadas.
 
 ![node-07](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/node-07.png)
 
-7. Clique em "Next" para prosseguir com a instalação
+7. Clique em "Next" para prosseguir com a instalação.
 
 ![node-08](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/node-08.png)
 
-8. Clique em "Install" para instalar
+8. Clique em "Install" para instalar.
 
 ![node-09](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/node-09.png)
 
-9. Ao finalizar, clique em "Finish"
+9. Ao finalizar, clique em "Finish".
 
 ![node-10](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/node-10.png)
 
 ![node-11](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/node-11.png)
 
-10. Para verificar se a instalação foi bem-sucedida, abra o Prompt de Comando do Windows
+10. Para verificar se a instalação foi bem-sucedida, abra o Prompt de Comando do Windows.
 
 ![node-12](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/node-12.png)
 
@@ -72,15 +72,15 @@ Veja abaixo o guia de instalação de cada um desses programas.
 
 ![mongo-03](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/mongo-03.png)
 
-3. Clique em "Next" para prosseguir com  instalação
+3. Clique em "Next" para prosseguir com  instalação.
 
 ![mongo-04](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/mongo-04.png)
 
-4. Aceite os termos de uso
+4. Aceite os termos de uso.
 
 ![mongo-05](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/mongo-05.png)
 
-5. Escolha a instalação "Complete"
+5. Escolha a instalação "Complete".
 
 ![mongo-06](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/mongo-06.png)
 
@@ -101,8 +101,6 @@ Veja abaixo o guia de instalação de cada um desses programas.
 ![mongo-10](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/mongo-10.png)
 
 ![mongo-11](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/mongo-11.png)
-
-
 
 
 ## Mais Informações
