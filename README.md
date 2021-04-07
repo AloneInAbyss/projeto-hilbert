@@ -55,7 +55,7 @@ Veja abaixo o guia de instalação de cada um desses programas.
 
 ![node-12](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/node-12.png)
 
-11. Digite os comandos: `node -v` e `npm-v`, que irão mostrar a versão instalada.
+11. Digite os comandos: `node -v` e `npm -v`, que irão mostrar a versão instalada.
 
 ![node-13](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/node-13.png)
 
