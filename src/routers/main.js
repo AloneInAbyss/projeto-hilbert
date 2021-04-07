@@ -185,15 +185,18 @@ router.get('/admin', authAdmin, async function(req, res) {
   if (challenges.length !== 0) {
 
     for (desafio of challenges) {
-      let owner = await User.findOne({ _id: desafio.owner});
+      try {
+        let owner = await User.findOne({ _id: desafio.owner});
+        challengecontent.push({
+          title: desafio.title,
+          description: desafio.description,
+          completed: desafio.completed,
+          owner: owner.username,
+          id: desafio._id.toString()
+        });
+      } catch {
 
-      challengecontent.push({
-        title: desafio.title,
-        description: desafio.description,
-        completed: desafio.completed,
-        owner: owner.username,
-        id: desafio._id.toString()
-      });
+      }
     }
 
   }
@@ -201,13 +204,16 @@ router.get('/admin', authAdmin, async function(req, res) {
   if (rewards.length !== 0) {
     
     for (recompensa of rewards) {
-      let owner = await Challenge.findOne({ _id: recompensa.owner});
-
-      rewardcontent.push({
-        link: recompensa.link,
-        owner: owner.title,
-        id: recompensa._id.toString()
-      });
+      try {
+        let owner = await Challenge.findOne({ _id: recompensa.owner});
+        rewardcontent.push({
+          link: recompensa.link,
+          owner: owner.title,
+          id: recompensa._id.toString()
+        });
+      } catch {
+        
+      }
     }
 
   }

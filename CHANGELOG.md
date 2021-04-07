@@ -5,6 +5,7 @@
 - Tamanho mínimo dos desafios alterado
 - Lista de desafios iniciais adicionado aos novos usuários
 - Responsividade adicionada às tabelas
+- Caminho do `favicon` alterado
 
 ## Versão 0.0.14 - 05.04.2020
 - Criação da página de recompensas
