@@ -1,3 +1,4 @@
+// Dependências
 const mongoose = require('mongoose');
 
 const rewardSchema = new mongoose.Schema({

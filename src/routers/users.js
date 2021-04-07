@@ -1,8 +1,11 @@
+// Dependências
 const express = require('express');
-const mongoose = require('mongoose');
-const authAdmin = require('../middleware/auth-admin');
-const User = require('../models/user');
 const router = new express.Router();
+const mongoose = require('mongoose');
+// Modelos
+const User = require('../models/user');
+// Middleware
+const authAdmin = require('../middleware/auth-admin');
 
 router.post('/admin/usuarios/criar', authAdmin, async function(req, res) {
 

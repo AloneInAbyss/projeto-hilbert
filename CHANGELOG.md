@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## Versão 0.0.15 - 07.04.2020
+- Refatoração e organização do código
+
 ## Versão 0.0.14 - 05.04.2020
 - Criação da página de recompensas
 - Rotas para acessar as recompensas de cada desafio

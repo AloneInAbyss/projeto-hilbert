@@ -1,7 +1,9 @@
+// Dependências
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+// Modelos
 const Challenge = require('./challenge');
 
 const userSchema = new mongoose.Schema({
@@ -11,9 +13,10 @@ const userSchema = new mongoose.Schema({
     required: true,
     trim: true,
     minLength: 4,
+    maxLength: 16,
     validate(value) {
       if(!validator.isAlphanumeric(value)) {
-        throw new Error('Só pode conter caracteres alfanuméricos (letras e números)')
+        throw new Error('Só pode conter letras e números');
       }
     }
   },
@@ -22,9 +25,10 @@ const userSchema = new mongoose.Schema({
     required: true,
     trim: true,
     minLength: 6,
+    maxLength: 16,
     validate(value) {
       if(!validator.isAlphanumeric(value)) {
-        throw new Error('Só pode conter caracteres alfanuméricos (letras e números)')
+        throw new Error('Só pode conter letras e números');
       }
     }
   },
@@ -49,7 +53,7 @@ userSchema.virtual('challenges', {
 });
 
 // Não envia a senha e os tokens ao solicitar a lista de usuários
-userSchema.methods.toJSON = function () {
+userSchema.methods.toJSON = function() {
   const user = this;
   const userObject = user.toObject();
 
@@ -60,7 +64,7 @@ userSchema.methods.toJSON = function () {
 }
 
 // Gera um token de autenticação JWT
-userSchema.methods.generateAuthToken = async function () {
+userSchema.methods.generateAuthToken = async function() {
   const user = this;
   const token = jwt.sign({ _id: user._id.toString() }, 'projetohilbert');
 
@@ -78,6 +82,7 @@ userSchema.statics.findByCredentials = async (username, password) => {
     throw new Error('Falha ao logar');
   }
 
+  // Descriptografa a senha do banco de dados
   // const isMatch = await bcrypt.compare(password, user.password);
   const isMatch = (password === user.password);
 

@@ -5,7 +5,7 @@
   
   {{>head}}
 
-  <title>Bem-vindo ao Projeto Hilbert!</title>
+  <title>Projeto Hilbert - Área administrativa</title>
 </head>
 
 <body>
@@ -22,7 +22,6 @@
           
           {{>userInfo}}
 
-          <!-- LISTA DE USUÁRIOS -->
           <div class="card rounded-0 border-0 w-100 bg-transparent mb-2">
 
             <div class="card-header rounded-0 bg-dark text-light border-0 h5">
@@ -39,7 +38,7 @@
             <ul class="list-group list-group-flush">
 
               <!-- USUÁRIOS -->
-              <li class="list-group-item py-0 pb-3 px-3 bg-dark border-0">
+              <li class="list-group-item py-0 pb-3 px-3 bg-dark border-0" id="usuarios">
 
                 <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3">
                   <div class="card-header rounded-0 bg-primary text-light border-dark">
@@ -89,7 +88,6 @@
                       
                         <div class="d-flex d-sm-none">
                           <div class="btn-group-vertical mx-auto w-50" role="group">
-                            <!--<input type="submit" class="btn btn-success" name="action" value="Registrar">-->
                             <input type="submit" class="btn btn-warning" name="action" value="Editar">
                             <input type="submit" class="btn btn-danger" name="action" value="Deletar">
                           </div>
@@ -97,7 +95,6 @@
 
                         <div class="d-none d-sm-flex">
                           <div class="btn-group mx-auto" role="group">
-                            <!--<input type="submit" class="btn btn-success" name="action" value="Registrar">-->
                             <input type="submit" class="btn btn-warning" name="action" value="Editar">
                             <input type="submit" class="btn btn-danger" name="action" value="Deletar">
                           </div>
@@ -112,11 +109,11 @@
               </li>
 
               <!-- DESAFIOS -->
-              <li class="list-group-item py-0 pb-3 px-3 bg-dark border-0">
+              <li class="list-group-item py-0 pb-3 px-3 bg-dark border-0" id="desafios">
 
                 <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3">
                   <div class="card-header rounded-0 bg-primary text-light border-dark">
-                    Lista de Desafios
+                    Lista de desafios
                   </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item border-0">
@@ -191,11 +188,11 @@
               </li> 
 
               <!-- RECOMPENSAS -->
-              <li class="list-group-item py-0 pb-3 px-3 bg-dark border-0">
+              <li class="list-group-item py-0 pb-3 px-3 bg-dark border-0" id="recompensas">
 
                 <div class="card rounded-0 border-dark border-bottom-0 w-100 pb-3">
                   <div class="card-header rounded-0 bg-primary text-light border-dark">
-                    Recompensas
+                    Lista de recompensas
                   </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item border-0">
@@ -261,7 +258,6 @@
 
             </ul>
           </div>
-          <!-- /LISTA DE DESAFIOS EM ANDAMENTO -->
 
         </div>
       </div>

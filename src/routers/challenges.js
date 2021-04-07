@@ -1,10 +1,13 @@
+// Dependências
 const express = require('express');
 const mongoose = require('mongoose');
+const router = new express.Router();
+// Modelos
 const Challenge = require('../models/challenge');
 const Reward = require('../models/reward');
+// Middleware
 const auth = require('../middleware/auth');
 const authAdmin = require('../middleware/auth-admin');
-const router = new express.Router();
 
 // Rotas
 router.get('/desafio/cancelar', auth, async function (req, res) {
@@ -14,6 +17,7 @@ router.get('/desafio/cancelar', auth, async function (req, res) {
   }
 
   let user = req.user;
+  let admin = (user.isAdmin) ? true : false;
   let id = req.query.id;
 
   let dbID;
@@ -47,7 +51,8 @@ router.get('/desafio/cancelar', auth, async function (req, res) {
         completed: challenges.completed,
         recompensa: '',
         id: challenges._id.toString()
-      }
+      },
+      admin
     });
   } else {
     res.redirect('/inicio');
@@ -62,6 +67,7 @@ router.get('/desafio/concluir', auth, async function (req, res) {
   }
 
   let user = req.user;
+  let admin = (user.isAdmin) ? true : false;
   let id = req.query.id;
 
   let dbID;
@@ -104,7 +110,8 @@ router.get('/desafio/concluir', auth, async function (req, res) {
         completed: challenges.completed,
         recompensa: rwid,
         id: challenges._id.toString()
-      }
+      },
+      admin
     });
   } else {
     res.redirect('/inicio');
@@ -174,6 +181,5 @@ router.post('/admin/desafios/alterar', authAdmin, async (req, res) => {
   }
 
 });
-
 
 module.exports = router;

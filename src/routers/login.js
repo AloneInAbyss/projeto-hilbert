@@ -1,8 +1,10 @@
+// Dependências
 const express = require('express');
-const User = require('../models/user');
-const Challenge = require('../models/challenge');
-const auth = require('../middleware/auth');
 const router = new express.Router();
+// Modelos
+const User = require('../models/user');
+// Middleware
+const auth = require('../middleware/auth');
 
 // Rotas
 router.get("/login", auth, function(req, res) {
@@ -64,49 +66,6 @@ router.post('/cadastrar', async (req, res) => {
       alertMessage: 'Nome de usuário ou senha inválidos'
     });
   }
-
-});
-
-router.get("/inicio", auth, async function(req, res) {
-
-  if (!req.logged) {
-    return res.redirect('/login');
-  }
-
-  let user = req.user;
-  let admin = (user.isAdmin) ? true : false;
-  const challenges = await Challenge.find({ owner: user._id });
-
-  let emptyInProgress = true;
-  let emptyCompleted = true;
-  let content = [];
-
-  if (challenges.length !== 0) {
-
-    // Agrupa todos os desafios do usuário
-    for (desafio of challenges) {
-      content.push({
-        title: desafio.title, 
-        description: desafio.description, 
-        completed: desafio.completed,
-        id: desafio._id.toString()
-      });
-      if (desafio.completed) { emptyCompleted = false; }
-      if (!desafio.completed) { emptyInProgress = false; }
-    }
-
-  } else {
-    emptyInProgress = true;
-    emptyCompleted = true;
-  }
-
-  res.render('pagina-inicial', {
-    name: user.username,
-    emptyInProgress: emptyInProgress,
-    emptyCompleted: emptyCompleted,
-    content: content,
-    admin: admin
-  });
 
 });
 

@@ -10,20 +10,6 @@ function validateForm() {
   let psMinLength = 6;
   let psMaxLength = 16;
 
-  if (password.length < psLength) {
-
-    alert_message.innerHTML = `A senha precisa conter pelo menos ${psMinLength} caracteres`;
-    alert.classList.remove("d-none");
-
-  } else
-
-  if (password.length > psMaxLength) {
-
-    alert_message.innerHTML = `A senha não pode ter mais de ${psMaxLength} caracteres`;
-    alert.classList.remove("d-none");
-    
-  } else
-  
   if (username.length < unMinLength) {
     
     alert_message.innerHTML = `O nome de usuário precisa conter pelo menos ${unMinLength} caracteres`;
@@ -36,6 +22,20 @@ function validateForm() {
     alert_message.innerHTML = `O nome de usuário não pode ter mais de ${unMaxLength} caracteres`;
     alert.classList.remove("d-none");
 
+  } else 
+
+  if (password.length < psMinLength) {
+
+    alert_message.innerHTML = `A senha precisa conter pelo menos ${psMinLength} caracteres`;
+    alert.classList.remove("d-none");
+
+  } else
+
+  if (password.length > psMaxLength) {
+
+    alert_message.innerHTML = `A senha não pode ter mais de ${psMaxLength} caracteres`;
+    alert.classList.remove("d-none");
+    
   } else {
 
     alert.classList.add("d-none");

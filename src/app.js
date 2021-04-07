@@ -1,8 +1,8 @@
 // Dependências
-const express = require("express");
-const hbs = require("hbs");
-const path = require("path");
-const cookieParser = require("cookie-parser");
+const express = require('express');
+const hbs = require('hbs');
+const path = require('path');
+const cookieParser = require('cookie-parser');
 
 // Banco de dados
 require('./db/mongoose');
@@ -12,14 +12,14 @@ const loginRouter = require('./routers/login');
 const usersRouter = require('./routers/users');
 const challengesRouter = require('./routers/challenges');
 const rewardsRouter = require('./routers/rewards');
-const mainRouter = require('./routers/mainroutes');
+const mainRouter = require('./routers/main');
 
 // Express
 const app = express();
-const porta = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 // Paths
-const publicFolderPath = path.join(__dirname, '../public');
+const publicPath = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../templates/views');
 const partialsPath = path.join(__dirname, '../templates/partials');
 
@@ -29,7 +29,7 @@ app.set('views', viewsPath);
 hbs.registerPartials(partialsPath);
 
 // Use
-app.use(express.static(publicFolderPath));
+app.use(express.static(publicPath));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -42,6 +42,6 @@ app.use(rewardsRouter);
 app.use(mainRouter);
 
 // Inicia o servidor
-app.listen(porta, () => {
-  console.log(`Executando na porta ${porta}.`);
+app.listen(port, () => {
+  console.log(`Executando na porta ${port}.`);
 });

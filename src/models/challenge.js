@@ -1,4 +1,6 @@
+// Dependências
 const mongoose = require('mongoose');
+// Modelos
 const Reward = require('./reward');
 
 const challengeSchema = new mongoose.Schema({

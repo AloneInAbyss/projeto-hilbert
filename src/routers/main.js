@@ -1,13 +1,59 @@
+// Dependências
 const express = require('express');
+const router = new express.Router();
 const mongoose = require('mongoose');
-const auth = require('../middleware/auth');
-const authAdmin = require('../middleware/auth-admin');
+// Modelos
 const User = require('../models/user');
 const Challenge = require('../models/challenge');
 const Reward = require('../models/reward');
-const router = new express.Router();
+// Middleware
+const auth = require('../middleware/auth');
+const authAdmin = require('../middleware/auth-admin');
 
 // Rotas
+router.get("/inicio", auth, async function(req, res) {
+
+  if (!req.logged) {
+    return res.redirect('/login');
+  }
+
+  let user = req.user;
+  let admin = (user.isAdmin) ? true : false;
+  
+  let emptyInProgress = true;
+  let emptyCompleted = true;
+  let content = [];
+  
+  const challenges = await Challenge.find({ owner: user._id });
+  if (challenges.length !== 0) {
+
+    // Agrupa todos os desafios do usuário
+    for (desafio of challenges) {
+      content.push({
+        title: desafio.title, 
+        description: desafio.description, 
+        completed: desafio.completed,
+        id: desafio._id.toString()
+      });
+      if (desafio.completed) { emptyCompleted = false; }
+      if (!desafio.completed) { emptyInProgress = false; }
+    }
+
+  } else {
+    emptyInProgress = true;
+    emptyCompleted = true;
+  }
+
+  res.render('pagina-inicial', {
+    name: user.username,
+    emptyInProgress: emptyInProgress,
+    emptyCompleted: emptyCompleted,
+    content: content,
+    admin: admin
+  });
+
+});
+
 router.get('/desafio', auth, async function(req, res) {
 
   if (!req.logged) {
@@ -15,6 +61,7 @@ router.get('/desafio', auth, async function(req, res) {
   }
 
   let user = req.user;
+  let admin = (user.isAdmin) ? true : false;
   let id = req.query.id;
 
   let dbID;
@@ -39,7 +86,6 @@ router.get('/desafio', auth, async function(req, res) {
       return res.redirect('/inicio');
     }
 
-
     res.render('desafio', {
       name: user.username,
       desafio: {
@@ -48,7 +94,8 @@ router.get('/desafio', auth, async function(req, res) {
         completed: challenges.completed,
         recompensa: rwid,
         id: challenges._id.toString()
-      }
+      },
+      admin
     });
   } else {
     res.redirect('/inicio');
@@ -63,6 +110,7 @@ router.get('/recompensa', auth, async function(req, res) {
   }
 
   let user = req.user;
+  let admin = (user.isAdmin) ? true : false;
   let id = req.query.id;
 
   let dbID;
@@ -75,7 +123,6 @@ router.get('/recompensa', auth, async function(req, res) {
   const rewards = await Reward.findOne({ _id: dbID });
 
   if (rewards !== null) {
-    
     
     const challenges = await Challenge.findOne({ _id: rewards.owner });
     
@@ -94,7 +141,8 @@ router.get('/recompensa', auth, async function(req, res) {
         desafio: {
           id: challenges._id,
           name: challenges.title
-        }
+        },
+        admin
       });
     } else {
       res.redirect('/inicio');

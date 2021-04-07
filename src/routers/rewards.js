@@ -1,7 +1,10 @@
+// Dependências
 const express = require('express');
-const Reward = require('../models/reward');
-const authAdmin = require('../middleware/auth-admin');
 const router = new express.Router();
+// Modelos
+const Reward = require('../models/reward');
+// Middleware
+const authAdmin = require('../middleware/auth-admin');
 
 router.post('/admin/recompensas/criar', authAdmin, async (req, res) => {
   

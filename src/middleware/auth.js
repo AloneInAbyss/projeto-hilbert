@@ -1,15 +1,17 @@
+// Dependências
 const jwt = require('jsonwebtoken');
+// Modelos
 const User = require('../models/user');
 
 const auth = async (req, res, next) => {
+
   try {
-    // Para testes com o Insomnia
+    // Testes com o Insomnia
     //const token = req.header('Authorization').replace('Bearer ', '');
 
-    // Para testes com o navegador
-    // const token = req.cookies['auth_token'];
-
+    // Cookie do navegador
     const token = req.cookies['auth_token'];
+
     const decoded = jwt.verify(token, 'projetohilbert');
     const user = await User.findOne({ _id: decoded._id, 'tokens.token': token });
 
@@ -24,9 +26,9 @@ const auth = async (req, res, next) => {
     next();
   } catch (e) {
     req.logged = false;
-
     next();
   }
+  
 }
 
 module.exports = auth;

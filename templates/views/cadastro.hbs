@@ -34,22 +34,23 @@
               <div class="form-group">
                 <label for="password">Digite uma senha</label>
                 <input type="password" class="form-control" id="password" name="password" 
-                  minlength="4" maxlength="16" required>
+                  minlength="6" maxlength="16" pattern="[a-zA-Z0-9]+" title="Apenas caracteres alfanuméricos" required>
               </div>
               <!-- Repetir senha -->
               <div class="form-group">
                 <label for="password-check">Repita a senha</label>
                 <input type="password" class="form-control" id="password-check" name="password-check" 
-                  minlength="4" maxlength="16" required>
+                  minlength="6" maxlength="16" pattern="[a-zA-Z0-9]+" title="Apenas caracteres alfanuméricos" required>
               </div>
-              <!--<input type="hidden" name="isAdmin" value="false">-->
               <!-- Enviar -->
               <button type="submit" class="btn btn-primary w-100 mt-2" onclick="validateForm()">Registrar-se</button>
             </form>
             <!-- /FORMULÁRIO -->
+
             <!-- Separador -->
             <hr class="mt-4">
-            <!-- Cadastro -->
+
+            <!-- Link para login -->
             <p class="form-text">
               Já é registrado? <a href="/">Faça login</a>
             </p>
@@ -94,7 +95,7 @@
     crossorigin="anonymous"></script>
   
   <!-- JS Personalizado -->
-  <script src="/js/form-cadastro.js"></script>
+  <script src="/js/form-validate.js"></script>
 </body>
 
 </html>
