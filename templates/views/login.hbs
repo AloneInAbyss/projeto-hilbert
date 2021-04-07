@@ -24,6 +24,12 @@
           <div class="rounded p-3 bg-light">
             <!-- FORMULÁRIO DE LOGIN -->
             <form name="formLogin" class="rounded" method="POST" action="/logar">
+              <fieldset class="bg-light">
+              <legend class="bg-light">Faça login</legend>
+
+              <!-- Separador -->
+              <hr class="mt-1">
+
               <!-- Usuário -->
               <div class="form-group">
                 <label for="username">Usuário</label>
@@ -38,6 +44,7 @@
               </div>
               <!-- Enviar -->
               <button type="submit" class="btn btn-primary w-100 mt-2" onclick="validateForm()">Entrar</button>
+              </fieldset>
             </form>
             <!-- /FORMULÁRIO -->
 

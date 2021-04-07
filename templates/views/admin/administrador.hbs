@@ -48,11 +48,13 @@
                     <li class="list-group-item border-0">
 
                       <form method="POST" action="/admin" class="bg-white">
-                      <input type="hidden" name="optype" value="user">
-                        <table class="table mx-2">
+                        <input type="hidden" name="optype" value="user">
+
+                        <div class="table-responsive">
+                        <table class="table">
                           <thead>
                             <tr>
-                              <th scope="col" class="border-top-0" style="width: 50px;"></th>
+                              <th scope="col" class="border-top-0"></th>
                               <th scope="col" class="border-top-0">Usuário</th>
                               <th scope="col" class="border-top-0">Administrador?</th>
                             </tr>
@@ -85,6 +87,7 @@
                             {{/each}}
                           </tbody>
                         </table>
+                        </div>
                       
                         <div class="d-flex d-sm-none">
                           <div class="btn-group-vertical mx-auto w-50" role="group">
@@ -120,12 +123,14 @@
 
                       <form method="POST" action="/admin" class="bg-white">
                         <input type="hidden" name="optype" value="challenge">
-                        <table class="table mx-2" style="table-layout: fixed;">
+
+                        <div class="table-responsive">
+                        <table class="table">
                           <thead>
                             <tr>
-                              <th scope="col" class="border-top-0" style="width: 50px;"></th>
+                              <th scope="col" class="border-top-0"></th>
                               <th scope="col" class="border-top-0">Título</th>
-                              <th scope="col" class="border-top-0" style="overflow: hidden; white-space: nowrap;">Completado?</th>
+                              <th scope="col" class="border-top-0">Completado?</th>
                               <th scope="col" class="border-top-0">Usuário</th>
                             </tr>
                           </thead>
@@ -138,7 +143,7 @@
                                     <input class="form-check-input" type="radio" name="challenge" id="challenge-{{id}}" value="{{id}}">
                                   </div>
                                 </td>
-                                <td style="overflow: hidden; white-space: nowrap;">
+                                <td>
                                   <label for="challenge-{{id}}">
                                     {{title}}
                                   </label>
@@ -152,7 +157,7 @@
                                   {{/if}}
                                   </label>
                                 </td>
-                                <td style="overflow: hidden; white-space: nowrap;">
+                                <td>
                                   <label for="challenge-{{id}}">
                                     {{owner}}
                                   </label>
@@ -162,6 +167,7 @@
                             {{/each}}
                           </tbody>
                         </table>
+                        </div>
                       
                         <div class="d-flex d-sm-none">
                           <div class="btn-group-vertical mx-auto w-50" role="group">
@@ -198,8 +204,10 @@
                     <li class="list-group-item border-0">
 
                       <form method="POST" action="/admin" class="bg-white">
-                      <input type="hidden" name="optype" value="reward">
-                        <table class="table mx-2">
+                        <input type="hidden" name="optype" value="reward">
+
+                        <div class="table-responsive">
+                        <table class="table">
                           <thead>
                             <tr>
                               <th scope="col" class="border-top-0"></th>
@@ -231,6 +239,7 @@
                             {{/each}}
                           </tbody>
                         </table>
+                        </div>
                       
                         <div class="d-flex d-sm-none">
                           <div class="btn-group-vertical mx-auto w-50" role="group">

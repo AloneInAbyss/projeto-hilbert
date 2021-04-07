@@ -2,6 +2,9 @@
 
 ## Versão 0.0.15 - 07.04.2020
 - Refatoração e organização do código
+- Tamanho mínimo dos desafios alterado
+- Lista de desafios iniciais adicionado aos novos usuários
+- Responsividade adicionada às tabelas
 
 ## Versão 0.0.14 - 05.04.2020
 - Criação da página de recompensas

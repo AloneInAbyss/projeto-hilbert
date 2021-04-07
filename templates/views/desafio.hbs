@@ -50,7 +50,7 @@
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item border-0">
 
-                      <p>
+                      <p style="min-height: 150px;">
                         {{desafio.description}}
                       </p>
                       
@@ -58,10 +58,10 @@
                         <div class="btn-group-vertical mx-auto w-50" role="group">
                           {{#if desafio.completed}}
                           <a type="button" class="btn btn-success disabled" href="">Concluir</a>
-                          <a type="button" class="btn btn-warning" href="/recompensa?={{desafio.recompensa}}">Recompensa</a>
-                          <a type="button" class="btn btn-danger" href="/desafio/cancelar?={{desafio.id}}">Cancelar</a>
+                          <a type="button" class="btn btn-warning" href="/recompensa?id={{desafio.recompensa}}">Recompensa</a>
+                          <a type="button" class="btn btn-danger" href="/desafio/cancelar?id={{desafio.id}}">Cancelar</a>
                           {{else}}
-                          <a type="button" class="btn btn-success" href="/desafio/concluir?={{desafio.id}}">Concluir</a>
+                          <a type="button" class="btn btn-success" href="/desafio/concluir?id={{desafio.id}}">Concluir</a>
                           <a type="button" class="btn btn-warning disabled" href="">Recompensa</a>
                           <a type="button" class="btn btn-danger disabled" href="">Cancelar</a>
                           {{/if}}
