@@ -6,6 +6,8 @@
 1. NodeJS
 2. MongoDB
 
+O *NodeJS* será usado para executar o JavaScript em um *web server* em nossa própria máquina. O *MongoDB* é um banco de dados onde os dados da aplicação ficam armazenados. 
+
 Veja abaixo o guia de instalação de cada um desses programas.
 
 ### Instalação do NodeJS
@@ -58,6 +60,9 @@ Veja abaixo o guia de instalação de cada um desses programas.
 ![node-13](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/node-13.png)
 
 ![node-14](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/node-14.png)
+
+### Instalação do MongoDB
+1. Entre no [site oficial](https://www.mongodb.com/try/download/community) do MongoDB. Faça o download da versão mais recente.
 
 
 ## Mais Informações
