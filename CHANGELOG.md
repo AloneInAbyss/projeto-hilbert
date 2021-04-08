@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## Versão 0.1.0 - 07.04.2020
+- Usuário administrador criado
+- Guias de instalação criados
+
 ## Versão 0.0.15 - 07.04.2020
 - Refatoração e organização do código
 - Tamanho mínimo dos desafios alterado

@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 
 // Banco de dados
 require('./db/mongoose');
+require('./db/default');
 
 // Rotas
 const loginRouter = require('./routers/login');

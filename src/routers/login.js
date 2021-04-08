@@ -110,7 +110,7 @@ router.post('/cadastrar', async (req, res) => {
     // Desafio 4
     challenge = new Challenge({
       title: 'Bem-vindo ao Projeto Hilbert!',
-      description: 'Veja aqui algumas dicas. Na página inicial há alguns desafios com temas interessantes, e ao marcá-los como concluídos haverá um vídeo sobre o assunto. Não é necessário inserir uma resposta, basta marcar como concluído. As recompensas levam a algum vídeo do YouTube. Se um usuário tiver a permissão de administrador (experimente fazer login com o nome de usuário "admin" e a senha "admin") há um link no topo das páginas para a área administrativa, onde é possível gerenciar usuários, desafios e recompensas.',
+      description: 'Veja aqui algumas dicas. Nesta página inicial há alguns desafios com temas interessantes, e ao marcá-los como concluídos haverá um vídeo sobre o assunto. Não é necessário inserir uma resposta, basta marcar como concluído. As recompensas levam a algum vídeo do YouTube. Se um usuário tiver a permissão de administrador (experimente fazer login com o nome de usuário "admin" e a senha "admin123") há um link no topo das páginas para a área administrativa, onde é possível gerenciar usuários, desafios e recompensas.',
       owner: user._id,
       completed: true
     });
