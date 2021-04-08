@@ -38,6 +38,27 @@ Veja abaixo o guia de instalação de cada um desses programas.
 
 6. Agora o servidor está pronto para ser acessado através do endereço http://localhost:3000/. Não feche o Prompt de Comando senão o servidor também será encerrado.
 
+![projeto-09](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/projeto-09.png)
+
+### Overview do Projeto
+Se tudo deu certo até aqui, acessando http://localhost:3000/ você irá se deparar com a página de login do *site*. O passo inicial é realizar o cadastro através do botão "Cadastre-se".
+
+![guia-01](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/guia-01.png)
+
+Na página inicial haverá alguns desafios que são criados automaticamente para novos usuários. No fim da página há um desafio marcado como concluído que tem algumas dicas sobre o site.
+
+![guia-02](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/guia-02.png)
+
+Ao clicar em algum desafio, é possível ver sua descrição e marcar como concluído quando desejar. Quando um desafio for concluído, o botão para acessar a recompensa será desbloqueado.
+
+![guia-03](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/guia-03.png)
+
+![guia-04](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/guia-04.png)
+
+Além do sistema de desafios e recompensas, há uma área administrativa para gerenciar os conteúdos do site. Experimente sair do usuário atual e fazer login com o usuário `admin` e a senha `admin123`. No topo da página inicial, haverá um link para a página **"Admin"**.
+
+![guia-05](https://github.com/AloneInAbyss/projeto-hilbert/blob/main/github/guia-05.png)
+
 
 ## Mais Informações
 
